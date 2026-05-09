@@ -30,4 +30,5 @@ export const messages: Record<Locale, Record<string, string>> = {
   },
 };
 
-export const getMessages = (locale: Locale) => messages[locale] || messages['en-US'];
+export const getMessages = (locale: Locale) =>
+  messages[locale] || messages['en-US'];
