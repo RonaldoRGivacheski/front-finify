@@ -10,7 +10,7 @@ import { Button, Card, Select, Upload } from 'ant-design-vue';
 const options = [
   { label: '1:1', value: '1:1' },
   { label: '16:9', value: '16:9' },
-  { label: '不限制', value: '' },
+  { label: 'No limit', value: '' },
 ];
 
 const cropperRef = ref<InstanceType<typeof VCropper>>();
@@ -25,7 +25,7 @@ const selectImgFile = (event: UploadChangeParam) => {
   if (!file) return;
 
   if (!file.type.startsWith('image/')) {
-    console.error('请上传图片文件');
+    console.error('Please upload the image file.');
     return;
   }
 
@@ -57,7 +57,7 @@ const cropImage = async () => {
 };
 
 /**
- * 下载图片
+ * Download image
  */
 const downloadImage = () => {
   if (!cropperImg.value) return;
@@ -70,13 +70,13 @@ const downloadImage = () => {
 </script>
 <template>
   <Page
-    title="VCropper 图片裁剪"
-    description="VCropper是一个图片裁剪组件，提供基础的图片裁剪功能。"
+    title="VCropper"
+    description="A simple and practical image cropping component based on Cropper.js."
   >
     <Card>
       <div class="image-cropper-container">
         <div class="cropper-ratio-display">
-          <label class="ratio-label">当前裁剪比例：</label>
+          <label class="ratio-label">Current aspect ratio:</label>
           <Select
             class="w-24"
             v-model:value="validAspectRatio"
@@ -88,7 +88,7 @@ const downloadImage = () => {
             :before-upload="() => false"
             @change="selectImgFile"
           >
-            <Button>上传图片</Button>
+            <Button>Upload Image</Button>
           </Upload>
         </div>
 
@@ -101,22 +101,22 @@ const downloadImage = () => {
             :height="600"
           />
 
-          <!-- 操作按钮组 -->
+          <!-- Operation button group -->
           <div class="cropper-btn-group">
             <Button :loading="cropLoading" @click="cropImage" type="primary">
-              裁剪
+              Crop
             </Button>
             <Button v-if="cropperImg" @click="downloadImage" danger>
-              下载图片
+              Download image
             </Button>
           </div>
 
-          <!-- 裁剪预览 -->
+          <!-- Crop Preview -->
           <img
             v-if="cropperImg"
             class="h-full w-80"
             :src="cropperImg"
-            alt="裁剪预览"
+            alt="Crop Preview"
           />
         </div>
       </div>
@@ -124,7 +124,7 @@ const downloadImage = () => {
   </Page>
 </template>
 <style scoped>
-/* 比例展示区域 */
+/* Aspect ratio display area */
 .cropper-ratio-display {
   @apply my-2.5 flex items-center justify-start gap-4;
 }
@@ -133,7 +133,7 @@ const downloadImage = () => {
   @apply text-sm font-medium;
 }
 
-/* 主裁剪区域 */
+/* Main cropper area */
 .cropper-main-wrapper {
   @apply flex items-center gap-4;
 }

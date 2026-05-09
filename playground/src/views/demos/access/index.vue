@@ -66,21 +66,24 @@ async function handleToggleAccessMode() {
 
 <template>
   <Page
-    :title="`${accessMode === 'frontend' ? '前端' : '后端'}页面访问权限演示`"
-    description="切换不同的账号，观察左侧菜单变化。"
+    :title="`${accessMode === 'frontend' ? 'Frontend' : 'Backend'} Page Access Permission Demo`"
+    description="Switch to different accounts to observe changes in the left-side menu."
   >
-    <Card class="mb-5" title="权限模式">
-      <span class="font-semibold">当前权限模式:</span>
+    <Card class="mb-5" title="Permission Mode">
+      <span class="font-semibold">Current Permission Mode:</span>
       <span class="mx-4 text-primary">{{
-        accessMode === 'frontend' ? '前端权限控制' : '后端权限控制'
+        accessMode === 'frontend'
+          ? 'Frontend Permission Control'
+          : 'Backend Permission Control'
       }}</span>
       <Button type="primary" @click="handleToggleAccessMode">
-        切换为{{ accessMode === 'frontend' ? '后端' : '前端' }}权限模式
+        Switch to
+        {{ accessMode === 'frontend' ? 'Backend' : 'Frontend' }} Permission Mode
       </Button>
     </Card>
-    <Card title="账号切换">
+    <Card title="Account Switch">
       <Button :type="roleButtonType('super')" @click="changeAccount('super')">
-        切换为 Super 账号
+        Switch to Super Account
       </Button>
 
       <Button
@@ -88,10 +91,10 @@ async function handleToggleAccessMode() {
         class="mx-4"
         @click="changeAccount('admin')"
       >
-        切换为 Admin 账号
+        Switch to Admin Account
       </Button>
       <Button :type="roleButtonType('user')" @click="changeAccount('user')">
-        切换为 User 账号
+        Switch to User Account
       </Button>
     </Card>
   </Page>

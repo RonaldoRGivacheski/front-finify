@@ -3,7 +3,7 @@ import type { Recordable } from '@vben/types';
 import { requestClient } from '#/api/request';
 
 export namespace SystemMenuApi {
-  /** 徽标颜色集合 */
+  /** Badge color set */
   export const BadgeVariants = [
     'default',
     'destructive',
@@ -11,9 +11,9 @@ export namespace SystemMenuApi {
     'success',
     'warning',
   ] as const;
-  /** 徽标类型集合 */
+  /** Badge type set */
   export const BadgeTypes = ['dot', 'normal'] as const;
-  /** 菜单类型集合 */
+  /** Menu type set */
   export const MenuTypes = [
     'catalog',
     'menu',
@@ -21,77 +21,77 @@ export namespace SystemMenuApi {
     'link',
     'button',
   ] as const;
-  /** 系统菜单 */
+  /** System menu */
   export interface SystemMenu {
     [key: string]: any;
-    /** 后端权限标识 */
+    /** Backend permission identifier */
     authCode: string;
-    /** 子级 */
+    /** Children */
     children?: SystemMenu[];
-    /** 组件 */
+    /** Component */
     component?: string;
-    /** 菜单ID */
+    /** Menu ID */
     id: string;
-    /** 菜单元数据 */
+    /** Menu metadata */
     meta?: {
-      /** 激活时显示的图标 */
+      /** Icon displayed when active */
       activeIcon?: string;
-      /** 作为路由时，需要激活的菜单的Path */
+      /** Path of the menu that needs to be activated when used as a route */
       activePath?: string;
-      /** 固定在标签栏 */
+      /** Fixed in the tab bar */
       affixTab?: boolean;
-      /** 在标签栏固定的顺序 */
+      /** Order of fixed in the tab bar */
       affixTabOrder?: number;
-      /** 徽标内容(当徽标类型为normal时有效) */
+      /** Badge content (valid when badge type is normal) */
       badge?: string;
-      /** 徽标类型 */
+      /** Badge type */
       badgeType?: (typeof BadgeTypes)[number];
-      /** 徽标颜色 */
+      /** Badge colors */
       badgeVariants?: (typeof BadgeVariants)[number];
-      /** 在菜单中隐藏下级 */
+      /** Hide children in menu */
       hideChildrenInMenu?: boolean;
-      /** 在面包屑中隐藏 */
+      /** Hide in breadcrumb */
       hideInBreadcrumb?: boolean;
-      /** 在菜单中隐藏 */
+      /** Hide in menu */
       hideInMenu?: boolean;
-      /** 在标签栏中隐藏 */
+      /** Hide in tab bar */
       hideInTab?: boolean;
-      /** 菜单图标 */
+      /** Menu icon */
       icon?: string;
-      /** 内嵌Iframe的URL */
+      /** Embedded Iframe URL */
       iframeSrc?: string;
-      /** 是否缓存页面 */
+      /** Cache page */
       keepAlive?: boolean;
-      /** 外链页面的URL */
+      /** External link URL */
       link?: string;
-      /** 同一个路由最大打开的标签数 */
+      /** Maximum number of open tabs for the same route */
       maxNumOfOpenTab?: number;
-      /** 无需基础布局 */
+      /** No need for basic layout */
       noBasicLayout?: boolean;
-      /** 是否在新窗口打开 */
+      /** Open in new window */
       openInNewWindow?: boolean;
-      /** 菜单排序 */
+      /** Menu sorting */
       order?: number;
-      /** 额外的路由参数 */
+      /** Additional route parameters */
       query?: Recordable<any>;
-      /** 菜单标题 */
+      /** Menu title */
       title?: string;
     };
-    /** 菜单名称 */
+    /** Menu name */
     name: string;
-    /** 路由路径 */
+    /** Route path */
     path: string;
-    /** 父级ID */
+    /** Parent ID */
     pid: string;
-    /** 重定向 */
+    /** Redirect */
     redirect?: string;
-    /** 菜单类型 */
+    /** Menu type */
     type: (typeof MenuTypes)[number];
   }
 }
 
 /**
- * 获取菜单数据列表
+ * Get menu data list
  */
 async function getMenuList() {
   return requestClient.get<Array<SystemMenuApi.SystemMenu>>(
@@ -118,8 +118,8 @@ async function isMenuPathExists(
 }
 
 /**
- * 创建菜单
- * @param data 菜单数据
+ * Create menu
+ * @param data Menu data
  */
 async function createMenu(
   data: Omit<SystemMenuApi.SystemMenu, 'children' | 'id'>,
@@ -128,10 +128,10 @@ async function createMenu(
 }
 
 /**
- * 更新菜单
+ * Update menu
  *
- * @param id 菜单 ID
- * @param data 菜单数据
+ * @param id Menu ID
+ * @param data Menu data
  */
 async function updateMenu(
   id: string,
@@ -141,8 +141,8 @@ async function updateMenu(
 }
 
 /**
- * 删除菜单
- * @param id 菜单 ID
+ * Delete menu
+ * @param id Menu ID
  */
 async function deleteMenu(id: string) {
   return requestClient.delete(`/system/menu/${id}`);

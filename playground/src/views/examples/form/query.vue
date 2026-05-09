@@ -6,48 +6,48 @@ import { Card, message } from 'ant-design-vue';
 import { useVbenForm } from '#/adapter/form';
 
 const [QueryForm] = useVbenForm({
-  // 默认展开
+  // Expand by default
   collapsed: false,
-  // 所有表单项共用，可单独在表单内覆盖
+  // Common for all form items, can be individually overridden in the form
   commonConfig: {
-    // 所有表单项
+    // All form items
     componentProps: {
       class: 'w-full',
     },
   },
-  // 提交函数
+  // Submit function
   handleSubmit: onSubmit,
-  // 垂直布局，label和input在不同行，值为vertical
-  // 水平布局，label和input在同一行
+  // Vertical layout, label and input in different rows, value is vertical
+  // Horizontal layout, label and input in the same row
   layout: 'horizontal',
   schema: [
     {
-      // 组件需要在 #/adapter.ts内注册，并加上类型
+      // Component must be registered in #/adapter.ts and have a type
       component: 'Input',
-      // 对应组件的参数
+      // Corresponding component parameters
       componentProps: {
-        placeholder: '请输入用户名',
+        placeholder: 'Please enter your username',
       },
-      // 字段名
+      // Field name
       fieldName: 'username',
-      // 界面显示的label
-      label: '字符串',
+      // Label displayed on the interface
+      label: 'String',
     },
     {
       component: 'InputPassword',
       componentProps: {
-        placeholder: '请输入密码',
+        placeholder: 'Please enter your password',
       },
       fieldName: 'password',
-      label: '密码',
+      label: 'Password',
     },
     {
       component: 'InputNumber',
       componentProps: {
-        placeholder: '请输入',
+        placeholder: 'Please enter',
       },
       fieldName: 'number',
-      label: '数字(带后缀)',
+      label: 'Number (with suffix)',
       suffix: () => '¥',
     },
     {
@@ -57,32 +57,32 @@ const [QueryForm] = useVbenForm({
         filterOption: true,
         options: [
           {
-            label: '选项1',
+            label: 'Option 1',
             value: '1',
           },
           {
-            label: '选项2',
+            label: 'Option 2',
             value: '2',
           },
         ],
-        placeholder: '请选择',
+        placeholder: 'Please select',
         showSearch: true,
       },
       fieldName: 'options',
-      label: '下拉选',
+      label: 'Dropdown',
     },
     {
       component: 'DatePicker',
       fieldName: 'datePicker',
-      label: '日期选择框',
+      label: 'Date Picker',
     },
   ],
-  // 是否可展开
+  // Whether it can be expanded
   showCollapseButton: true,
   submitButtonOptions: {
-    content: '查询',
+    content: 'Search',
   },
-  // 大屏一行显示3个，中屏一行显示2个，小屏一行显示1个
+  // Display 3 items per row on large screens, 2 items per row on medium screens, and 1 item per row on small screens
   wrapperClass: 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3',
 });
 
@@ -90,32 +90,32 @@ const [InlineForm] = useVbenForm({
   layout: 'inline',
   schema: [
     {
-      // 组件需要在 #/adapter.ts内注册，并加上类型
+      // The component needs to be registered in #/adapter.ts, and its type needs to be specified.
       component: 'Input',
-      // 对应组件的参数
+      // Parameters of the corresponding component
       componentProps: {
-        placeholder: '请输入用户名',
+        placeholder: 'Please enter your username',
       },
-      // 字段名
+      // Field name
       fieldName: 'username',
-      // 界面显示的label
-      label: '字符串',
+      // Label displayed on the interface
+      label: 'String',
     },
     {
       component: 'InputPassword',
       componentProps: {
-        placeholder: '请输入密码',
+        placeholder: 'Please enter your password',
       },
       fieldName: 'password',
-      label: '密码',
+      label: 'Password',
     },
     {
       component: 'InputNumber',
       componentProps: {
-        placeholder: '请输入',
+        placeholder: 'Please enter',
       },
       fieldName: 'number',
-      label: '数字(带后缀)',
+      label: 'Number (with suffix)',
       suffix: () => '¥',
     },
     {
@@ -125,123 +125,123 @@ const [InlineForm] = useVbenForm({
         filterOption: true,
         options: [
           {
-            label: '选项1',
+            label: 'Option 1',
             value: '1',
           },
           {
-            label: '选项2',
+            label: 'Option 2',
             value: '2',
           },
         ],
-        placeholder: '请选择',
+        placeholder: 'Please select',
         showSearch: true,
       },
       fieldName: 'options',
-      label: '下拉选',
+      label: 'Dropdown',
     },
   ],
 });
 
 const [QueryForm1] = useVbenForm({
-  // 默认展开
+  // Expanded by default
   collapsed: true,
   collapsedRows: 2,
-  // 所有表单项共用，可单独在表单内覆盖
+  // Common for all form items, can be individually overridden in the form
   commonConfig: {
-    // 所有表单项
+    // All form items
     componentProps: {
       class: 'w-full',
     },
   },
-  // 提交函数
+  // Submit function
   handleSubmit: onSubmit,
-  // 垂直布局，label和input在不同行，值为vertical
-  // 水平布局，label和input在同一行
+  // Vertical layout, label and input in different rows, value is vertical
+  // Horizontal layout, label and input in the same row
   layout: 'horizontal',
   schema: (() => {
     const schema = [];
     for (let index = 0; index < 14; index++) {
       schema.push({
-        // 组件需要在 #/adapter.ts内注册，并加上类型
+        // The component needs to be registered in #/adapter.ts, and its type needs to be specified.
         component: 'Input',
-        // 字段名
+        // Field name
         fieldName: `field${index}`,
-        // 界面显示的label
+        // Label displayed on the interface
         label: `字段${index}`,
       });
     }
     return schema;
   })(),
-  // 是否可展开
+  // Whether it can be expanded
   showCollapseButton: true,
   submitButtonOptions: {
-    content: '查询',
+    content: 'Search',
   },
-  // 大屏一行显示3个，中屏一行显示2个，小屏一行显示1个
+  // Display 3 items per row on large screens, 2 on medium screens, and 1 on small screens
   wrapperClass: 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3',
 });
 
 const [QueryForm2] = useVbenForm({
-  // 操作按钮组 newLine: 在新行显示。rowEnd: 在行内显示，靠右对齐（默认）。inline: 使用grid默认样式
+  // Action group newLine: displayed on a new line. rowEnd: displayed in the row, right-aligned (default). inline: uses grid default style
   actionLayout: 'newLine',
-  actionPosition: 'left', // 操作按钮组在左侧显示
-  // 默认折叠
+  actionPosition: 'left', // Action group displayed on the left
+  // Expanded by default
   collapsed: true,
   collapsedRows: 3,
-  // 所有表单项共用，可单独在表单内覆盖
+  // Common for all form items, can be individually overridden in the form
   commonConfig: {
-    // 所有表单项
+    // All form items
     componentProps: {
       class: 'w-full',
     },
   },
-  // 提交函数
+  // Submit function
   handleSubmit: onSubmit,
-  // 垂直布局，label和input在不同行，值为vertical
-  // 水平布局，label和input在同一行
+  // Vertical layout, label and input in different rows, value is vertical
+  // Horizontal layout, label and input in the same row
   layout: 'vertical',
   schema: [
     {
-      // 组件需要在 #/adapter.ts内注册，并加上类型
+      // The component needs to be registered in #/adapter.ts, and its type needs to be specified.
       component: 'Input',
-      // 对应组件的参数
+      // Parameters of the corresponding component
       componentProps: {
-        placeholder: '请输入用户名',
+        placeholder: 'Please enter your username',
       },
-      // 字段名
+      // Field name
       fieldName: 'username',
-      // 界面显示的label
-      label: '字符串',
+      // Label displayed on the interface
+      label: 'String',
     },
     {
       component: 'InputPassword',
       componentProps: {
-        placeholder: '请输入密码',
+        placeholder: 'Please enter your password',
       },
       fieldName: 'password',
-      label: '密码',
+      label: 'Password',
     },
     {
       component: 'InputNumber',
       componentProps: {
-        placeholder: '请输入',
+        placeholder: 'Please enter',
       },
       fieldName: 'number',
-      label: '数字(带后缀)',
+      label: 'Number (with suffix)',
       suffix: () => '¥',
     },
     {
       component: 'DatePicker',
       fieldName: 'datePicker',
-      label: '日期选择框',
+      label: 'Date Picker',
     },
   ],
-  // 是否可展开
+  // Whether it can be expanded
   showCollapseButton: true,
   submitButtonOptions: {
-    content: '查询',
+    content: 'Search',
   },
-  // 大屏一行显示3个，中屏一行显示2个，小屏一行显示1个
+  // Display 3 items per row on large screens, 2 items per row on medium screens, and 1 item per row on small screens
   wrapperClass: 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3',
 });
 
@@ -254,22 +254,24 @@ function onSubmit(values: Record<string, any>) {
 
 <template>
   <Page
-    description="查询表单，常用语和表格组合使用，可进行收缩展开。"
-    title="表单组件"
+    description="Form components are often used in combination with tables and can be expanded or collapsed."
+    title="form components"
   >
-    <Card class="mb-5" title="查询表单，默认展开">
+    <Card class="mb-5" title="query form, default expanded">
       <QueryForm />
     </Card>
 
-    <Card class="mb-5" title="查询表单，单行表单">
+    <Card class="mb-5" title="inline form">
       <InlineForm />
     </Card>
 
-    <Card class="mb-5" title="查询表单，默认展开，垂直布局">
+    <Card class="mb-5" title="query form, default expanded, vertical layout">
       <QueryForm2 />
     </Card>
 
-    <Card title="查询表单，默认折叠，折叠时保留2行">
+    <Card
+      title="query form, default collapsed, preserves 2 rows when collapsed"
+    >
       <QueryForm1 />
     </Card>
   </Page>

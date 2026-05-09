@@ -17,8 +17,8 @@ function openNestedModal() {
 }
 </script>
 <template>
-  <Modal title="嵌套弹窗示例">
-    <Button @click="openNestedModal" type="primary">打开子弹窗</Button>
+  <Modal title="Nested modal example">
+    <Button @click="openNestedModal" type="primary">Open nested modal</Button>
     <BaseModal />
   </Modal>
 </template>

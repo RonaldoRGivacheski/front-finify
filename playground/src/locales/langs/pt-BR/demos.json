@@ -1,0 +1,130 @@
+{
+  "title": "Demos",
+  "access": {
+    "frontendPermissions": "Permissões de Frontend",
+    "backendPermissions": "Permissões de Backend",
+    "pageAccess": "Acesso à Página",
+    "buttonControl": "Controle de Botões",
+    "menuVisible403": "Menu Visível (403)",
+    "superVisible": "Visível para Super",
+    "adminVisible": "Visível para Admin",
+    "userVisible": "Visível para Usuário"
+  },
+  "nested": {
+    "title": "Menu Aninhado",
+    "menu1": "Menu 1",
+    "menu2": "Menu 2",
+    "menu2_1": "Menu 2-1",
+    "menu3": "Menu 3",
+    "menu3_1": "Menu 3-1",
+    "menu3_2": "Menu 3-2",
+    "menu3_2_1": "Menu 3-2-1"
+  },
+  "outside": {
+    "title": "Páginas Externas",
+    "embedded": "Embutido",
+    "externalLink": "Link Externo"
+  },
+  "badge": {
+    "title": "Distintivo do Menu",
+    "dot": "Distintivo de Ponto",
+    "text": "Distintivo de Texto",
+    "color": "Cor do Distintivo"
+  },
+  "activeIcon": {
+    "title": "Ícone do Menu Ativo",
+    "children": "Ícone Ativo para Filhos"
+  },
+  "fallback": {
+    "title": "Página de Fallback"
+  },
+  "features": {
+    "title": "Recursos",
+    "hideChildrenInMenu": "Ocultar Filhos do Menu",
+    "loginExpired": "Login Expirado",
+    "icons": "Ícones",
+    "watermark": "Marca d'água",
+    "preferencesExtension": "Extensão de Preferências",
+    "tabs": "Abas",
+    "tabDetail": "Página de Detalhes da Aba",
+    "fullScreen": "Tela Cheia",
+    "clipboard": "Área de Transferência",
+    "menuWithQuery": "Menu com Parâmetros",
+    "openInNewWindow": "Abrir em Nova Janela",
+    "fileDownload": "Download de Arquivo"
+  },
+  "preferencesExtensionDemo": {
+    "description": "Esta página usa diretamente as preferências de extensão definidas no aplicativo playground. Você pode modificá-las em “Preferências → Extensão do Playground” no canto superior direito, ou clique nos botões de predefinição abaixo para ver a página ser atualizada em tempo real.",
+    "currentConfig": "Preferências Atuais de Extensão",
+    "currentTitle": "Título Atual: {title}",
+    "currentDescription": "Exibindo {count} tarefas por padrão; ações rápidas estão {quickActionText}; o tom de destaque atual é “{tone}”.",
+    "showQuickActions": "visível",
+    "hideQuickActions": "oculto",
+    "boardDescription": "Este é um exemplo de uso real: o título da página, área de ação, contagem de linhas visíveis e estilos de destaque são todos conduzidos pelas preferências da extensão.",
+    "quickActionsEnabled": "As ações rápidas estão desativadas no momento, portanto a página mantém apenas a exibição de informações somente leitura.",
+    "quickActions": {
+      "create": "Criar Tarefa",
+      "export": "Exportação em Lote",
+      "refresh": "Atualizar Dados"
+    },
+    "presetTitle": "Predefinições Rápidas (demonstra updateCustomPreferences)",
+    "presetButtons": {
+      "default": "Redefinir Padrão",
+      "compact": "Mudar para Compacto",
+      "review": "Mudar para Revisão"
+    },
+    "presetTitles": {
+      "compact": "Painel Compacto",
+      "default": "Visão Geral de Operações Semanais",
+      "review": "Painel de Revisão"
+    },
+    "tones": {
+      "default": "Padrão",
+      "success": "Sucesso",
+      "warning": "Aviso"
+    },
+    "owner": "Proprietário"
+  },
+  "preferencesExtensionConfig": {
+    "tabLabel": "Extensão do Playground",
+    "title": "Preferências de Negócios do Playground",
+    "fields": {
+      "reportTitle": {
+        "label": "Título do Relatório",
+        "placeholder": "Por favor, digite o título do relatório"
+      },
+      "defaultVisibleRows": {
+        "label": "Linhas Visíveis Padrão",
+        "tip": "Controla quantos itens de tarefa são renderizados por padrão na página de demonstração."
+      },
+      "enableQuickActions": {
+        "label": "Mostrar Ações Rápidas"
+      },
+      "highlightTone": {
+        "label": "Tom de Destaque",
+        "options": {
+          "default": "Padrão",
+          "success": "Sucesso",
+          "warning": "Aviso"
+        }
+      }
+    }
+  },
+  "breadcrumb": {
+    "navigation": "Navegação Breadcrumb",
+    "lateral": "Modo Lateral",
+    "lateralDetail": "Detalhe do Modo Lateral",
+    "level": "Modo de Nível",
+    "levelDetail": "Detalhe do Modo de Nível"
+  },
+  "vben": {
+    "title": "Projeto",
+    "about": "Sobre",
+    "document": "Documento",
+    "antdv": "Versão Ant Design Vue",
+    "antdv-next": "Versão Antdv Next",
+    "naive-ui": "Versão Naive UI",
+    "element-plus": "Versão Element Plus",
+    "tdesign": "Versão TDesign Vue"
+  }
+}

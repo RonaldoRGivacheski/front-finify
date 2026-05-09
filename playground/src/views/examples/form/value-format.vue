@@ -24,8 +24,8 @@ const [Form, formApi] = useVbenForm({
     {
       component: 'RangePicker',
       fieldName: 'reportRange',
-      help: '通过 setValue 拆分为 startTime / endTime，并移除原字段',
-      label: '统计时间范围',
+      help: 'Use setValue to split into startTime / endTime and remove the original field',
+      label: 'Time range',
       valueFormat(value, setValue) {
         setValue('startTime', value?.[0]?.valueOf());
         setValue('endTime', value?.[1]?.valueOf());
@@ -34,8 +34,8 @@ const [Form, formApi] = useVbenForm({
     {
       component: 'DatePicker',
       fieldName: 'deadline',
-      help: '直接 return 时间戳，保留原字段名',
-      label: '截止时间',
+      help: 'Return timestamp directly, keep original field name',
+      label: 'Deadline',
       valueFormat(value) {
         return value?.valueOf();
       },
@@ -43,10 +43,10 @@ const [Form, formApi] = useVbenForm({
     {
       component: 'Input',
       componentProps: {
-        placeholder: '请输入关键字',
+        placeholder: 'Please enter a keyword',
       },
       fieldName: 'keyword',
-      label: '关键字',
+      label: 'Keyword',
     },
   ],
   wrapperClass: 'grid-cols-1 md:grid-cols-2',
@@ -72,7 +72,7 @@ function formatJsonPreview(value: Record<string, any>) {
 
 async function handleInspectValues() {
   await syncPreviewValues();
-  message.success('已刷新 getValues 输出');
+  message.success('getValues output has been refreshed');
 }
 
 function handleSetExampleValue() {
@@ -113,19 +113,24 @@ onMounted(async () => {
 <template>
   <Page
     content-class="flex flex-col gap-4"
-    description="演示 schema.valueFormat 如何把组件值转换为提交/查询所需的 payload。"
-    title="表单 valueFormat"
+    description="Demo how schema.valueFormat converts component values to the payload required for submission/query."
+    title="Form valueFormat"
   >
     <template #description>
       <div class="text-muted-foreground space-y-2">
         <p>
-          <code>form.values</code> 保持组件原始值，<code>getValues()</code> /
-          提交时会按 <code>schema.valueFormat</code> 输出转换后的 payload。
+          <code>form.values</code> keeps the original value of the component,
+          and <code>getValues()</code> / submit will output the converted
+          payload according to <code>schema.valueFormat</code>.
         </p>
         <div class="flex flex-wrap gap-2">
-          <Tag color="processing">return 值：回写当前字段</Tag>
-          <Tag color="success">setValue：拆分写入其他字段</Tag>
-          <Tag color="warning">return undefined：保持原字段删除</Tag>
+          <Tag color="processing">
+            return value: Write back the current field
+          </Tag>
+          <Tag color="success">setValue: Split and write to other fields</Tag>
+          <Tag color="warning">
+            return undefined: Keep the original field and delete it
+          </Tag>
         </div>
       </div>
     </template>
@@ -133,12 +138,12 @@ onMounted(async () => {
       <DocButton path="/components/common-ui/vben-form" />
     </template>
 
-    <Card title="valueFormat 示例">
+    <Card title="valueFormat Example">
       <template #extra>
         <Space wrap>
-          <Button @click="handleSetExampleValue">填充示例数据</Button>
+          <Button @click="handleSetExampleValue">Set example data</Button>
           <Button type="primary" @click="handleInspectValues">
-            查看 getValues 输出
+            View getValues output
           </Button>
         </Space>
       </template>
@@ -146,12 +151,12 @@ onMounted(async () => {
     </Card>
 
     <div class="grid gap-4 lg:grid-cols-2">
-      <Card title="原始 form.values（组件值）">
+      <Card title="Raw form.values（component value）">
         <pre class="bg-muted overflow-auto rounded-md p-4 text-sm">{{
           liveValuesPreview
         }}</pre>
       </Card>
-      <Card title="getValues / submit 输出（valueFormat 后）">
+      <Card title="getValues / submit output（after valueFormat）">
         <pre class="bg-muted overflow-auto rounded-md p-4 text-sm">{{
           transformedValuesPreview
         }}</pre>

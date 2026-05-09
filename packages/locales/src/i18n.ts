@@ -100,13 +100,13 @@ function setI18nLanguage(locale: Locale) {
 }
 
 async function setupI18n(app: App, options: LocaleSetupOptions = {}) {
-  const { defaultLocale = 'zh-CN' } = options;
-  // app可以自行扩展一些第三方库和组件库的国际化
+  const { defaultLocale = 'pt-BR' } = options;
+  // app can extend the internationalization of some third-party libraries and component libraries
   loadMessages = options.loadMessages || (async () => ({}));
   app.use(i18n);
   await loadLocaleMessages(defaultLocale);
 
-  // 在控制台打印警告
+  // Print warnings to the console
   i18n.global.setMissingHandler((locale, key) => {
     if (options.missingWarn && key.includes('.')) {
       console.warn(

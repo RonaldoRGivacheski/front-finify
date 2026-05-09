@@ -52,19 +52,19 @@ async function changeAccount(role: string) {
 
 <template>
   <Page
-    :title="`${accessMode === 'frontend' ? '前端' : '后端'}按钮访问权限演示`"
-    description="切换不同的账号，观察按钮变化。"
+    :title="`${accessMode === 'frontend' ? 'Frontend' : 'Backend'} Button Access Control Demo`"
+    description="Switch between different accounts to observe button changes."
   >
     <Card class="mb-5">
       <template #title>
-        <span class="font-semibold">当前角色:</span>
+        <span class="font-semibold">Current Role:</span>
         <span class="mx-4 text-lg text-primary">
           {{ userStore.userRoles?.[0] }}
         </span>
       </template>
 
       <Button :type="roleButtonType('super')" @click="changeAccount('super')">
-        切换为 Super 账号
+        Switch to Super Account
       </Button>
 
       <Button
@@ -72,26 +72,26 @@ async function changeAccount(role: string) {
         class="mx-4"
         @click="changeAccount('admin')"
       >
-        切换为 Admin 账号
+        Switch to Admin Account
       </Button>
       <Button :type="roleButtonType('user')" @click="changeAccount('user')">
-        切换为 User 账号
+        Switch to User Account
       </Button>
     </Card>
 
-    <Card class="mb-5" title="组件形式控制 - 权限码">
+    <Card class="mb-5" title="Component Control - Permission Code">
       <AccessControl :codes="['AC_100100']" type="code">
-        <Button class="mr-4"> Super 账号可见 ["AC_100100"] </Button>
+        <Button class="mr-4"> Super Account Visible ["AC_100100"] </Button>
       </AccessControl>
       <AccessControl :codes="['AC_100030']" type="code">
-        <Button class="mr-4"> Admin 账号可见 ["AC_100030"] </Button>
+        <Button class="mr-4"> Admin Account Visible ["AC_100030"] </Button>
       </AccessControl>
       <AccessControl :codes="['AC_1000001']" type="code">
-        <Button class="mr-4"> User 账号可见 ["AC_1000001"] </Button>
+        <Button class="mr-4"> User Account Visible ["AC_1000001"] </Button>
       </AccessControl>
       <AccessControl :codes="['AC_100100', 'AC_100030']" type="code">
         <Button class="mr-4">
-          Super & Admin 账号可见 ["AC_100100","AC_100030"]
+          Super & Admin Account Visible ["AC_100100","AC_100030"]
         </Button>
       </AccessControl>
     </Card>
@@ -99,58 +99,66 @@ async function changeAccount(role: string) {
     <Card
       v-if="accessMode === 'frontend'"
       class="mb-5"
-      title="组件形式控制 - 角色"
+      title="Component Control - Role"
     >
       <AccessControl :codes="['super']" type="role">
-        <Button class="mr-4"> Super 角色可见 </Button>
+        <Button class="mr-4"> Super Role Visible </Button>
       </AccessControl>
       <AccessControl :codes="['admin']" type="role">
-        <Button class="mr-4"> Admin 角色可见 </Button>
+        <Button class="mr-4"> Admin Role Visible </Button>
       </AccessControl>
       <AccessControl :codes="['user']" type="role">
-        <Button class="mr-4"> User 角色可见 </Button>
+        <Button class="mr-4"> User Role Visible </Button>
       </AccessControl>
       <AccessControl :codes="['super', 'admin']" type="role">
-        <Button class="mr-4"> Super & Admin 角色可见 </Button>
+        <Button class="mr-4"> Super & Admin Role Visible </Button>
       </AccessControl>
     </Card>
 
-    <Card class="mb-5" title="函数形式控制">
+    <Card class="mb-5" title="Function Control">
       <Button v-if="hasAccessByCodes(['AC_100100'])" class="mr-4">
-        Super 账号可见 ["AC_100100"]
+        Super Account Visible ["AC_100100"]
       </Button>
       <Button v-if="hasAccessByCodes(['AC_100030'])" class="mr-4">
-        Admin 账号可见 ["AC_100030"]
+        Admin Account Visible ["AC_100030"]
       </Button>
       <Button v-if="hasAccessByCodes(['AC_1000001'])" class="mr-4">
-        User 账号可见 ["AC_1000001"]
+        User Account Visible ["AC_1000001"]
       </Button>
       <Button v-if="hasAccessByCodes(['AC_100100', 'AC_100030'])" class="mr-4">
-        Super & Admin 账号可见 ["AC_100100","AC_100030"]
+        Super & Admin Account Visible ["AC_100100","AC_100030"]
       </Button>
     </Card>
 
-    <Card class="mb-5" title="指令方式 - 权限码">
+    <Card class="mb-5" title="Instruction Control - Permission Code">
       <Button class="mr-4" v-access:code="['AC_100100']">
-        Super 账号可见 ["AC_100100"]
+        Super Account Visible ["AC_100100"]
       </Button>
       <Button class="mr-4" v-access:code="['AC_100030']">
-        Admin 账号可见 ["AC_100030"]
+        Admin Account Visible ["AC_100030"]
       </Button>
       <Button class="mr-4" v-access:code="['AC_1000001']">
-        User 账号可见 ["AC_1000001"]
+        User Account Visible ["AC_1000001"]
       </Button>
       <Button class="mr-4" v-access:code="['AC_100100', 'AC_100030']">
-        Super & Admin 账号可见 ["AC_100100","AC_100030"]
+        Super & Admin Account Visible ["AC_100100","AC_100030"]
       </Button>
     </Card>
 
-    <Card v-if="accessMode === 'frontend'" class="mb-5" title="指令方式 - 角色">
-      <Button class="mr-4" v-access:role="['super']"> Super 角色可见 </Button>
-      <Button class="mr-4" v-access:role="['admin']"> Admin 角色可见 </Button>
-      <Button class="mr-4" v-access:role="['user']"> User 角色可见 </Button>
+    <Card
+      v-if="accessMode === 'frontend'"
+      class="mb-5"
+      title="Instruction Control - Role"
+    >
+      <Button class="mr-4" v-access:role="['super']">
+        Super Role Visible
+      </Button>
+      <Button class="mr-4" v-access:role="['admin']">
+        Admin Role Visible
+      </Button>
+      <Button class="mr-4" v-access:role="['user']"> User Role Visible </Button>
       <Button class="mr-4" v-access:role="['super', 'admin']">
-        Super & Admin 角色可见
+        Super & Admin Role Visible
       </Button>
     </Card>
   </Page>

@@ -10,9 +10,9 @@ import { useVbenForm } from '#/adapter/form';
 import DocButton from '../doc-button.vue';
 
 const [CustomLayoutForm] = useVbenForm({
-  // 所有表单项共用，可单独在表单内覆盖
+  // This feature is shared by all form fields and can be overridden individually within a form.
   commonConfig: {
-    // 所有表单项
+    // All form items
     componentProps: {
       class: 'w-full',
     },
@@ -22,29 +22,29 @@ const [CustomLayoutForm] = useVbenForm({
     {
       component: 'Select',
       fieldName: 'field1',
-      label: '字符串',
+      label: 'String',
     },
     {
       component: 'TreeSelect',
       fieldName: 'field2',
-      label: '字符串',
+      label: 'String',
     },
     {
       component: 'Mentions',
       fieldName: 'field3',
-      label: '字符串',
+      label: 'String',
     },
     {
       component: 'Input',
       fieldName: 'field4',
-      label: '字符串',
+      label: 'String',
     },
     {
       component: 'InputNumber',
       fieldName: 'field5',
-      // 从第三列开始 相当于中间空了一列
+      // Starts from the third column, equivalent to leaving a column in the middle
       formItemClass: 'col-start-3',
-      label: '前面空了一列',
+      label: 'Leave a column empty',
     },
     {
       component: 'Divider',
@@ -60,32 +60,32 @@ const [CustomLayoutForm] = useVbenForm({
     {
       component: 'Textarea',
       fieldName: 'field6',
-      // 占满三列空间 基线对齐
+      // Occupies three columns of space and aligns baselines
       formItemClass: 'col-span-3 items-baseline',
-      label: '占满三列',
+      label: 'Occupies three columns',
     },
     {
       component: 'Input',
       fieldName: 'field7',
-      // 占满2列空间 从第二列开始 相当于前面空了一列
+      // Occupies two columns of space, starting from the second column, equivalent to leaving a column empty in front
       formItemClass: 'col-span-2 col-start-2',
-      label: '占满2列',
+      label: 'Occupies two columns',
     },
     {
       component: 'Input',
       fieldName: 'field8',
-      // 左右留空
+      // Leave space on the left and right
       formItemClass: 'col-start-2',
-      label: '左右留空',
+      label: 'Leave space on the left and right',
     },
     {
       component: 'InputPassword',
       fieldName: 'field9',
       formItemClass: 'col-start-1',
-      label: '字符串',
+      label: 'String',
     },
   ],
-  // 一共三列
+  // Total of three columns
   wrapperClass: 'grid-cols-3',
 });
 </script>
@@ -93,18 +93,21 @@ const [CustomLayoutForm] = useVbenForm({
 <template>
   <Page
     content-class="flex flex-col gap-4"
-    description="使用tailwind自定义表单项的布局"
-    title="表单自定义布局"
+    description="Custom form item layout"
+    title="Form custom layout"
   >
     <template #description>
       <div class="text-muted-foreground">
-        <p>使用tailwind自定义表单项的布局，使用Divider分割表单。</p>
+        <p>
+          Custom form item layout using Tailwind, using Divider to split the
+          form.
+        </p>
       </div>
     </template>
     <template #extra>
       <DocButton class="mb-2" path="/components/common-ui/vben-form" />
     </template>
-    <Card title="使用tailwind自定义布局">
+    <Card title="Custom form layout">
       <CustomLayoutForm />
     </Card>
   </Page>

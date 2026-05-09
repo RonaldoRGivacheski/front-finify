@@ -15,7 +15,7 @@ import {
   Row,
   Select,
 } from 'ant-design-vue';
-// 本例子用不到visible类型的动画。带有VisibleOnce和Visible的类型会在组件进入视口被显示时执行动画，
+//  This example does not use visible-type animations. Those with VisibleOnce and Visible will execute animations when the component enters the viewport.
 const presets = MotionPresets.filter((v) => !v.includes('Visible'));
 const showCard1 = refAutoReset(true, 100);
 const showCard2 = refAutoReset(true, 100);
@@ -61,12 +61,13 @@ function openDocPage() {
 <template>
   <Page title="Motion">
     <template #description>
-      <span>一个易于使用的为其它组件赋予动画效果的组件。</span>
-      <Button type="link" @click="openDocPage">查看文档</Button>
+      <span>An easy-to-use component that adds animation effects to other
+        components.</span>
+      <Button type="link" @click="openDocPage">View documentation</Button>
     </template>
-    <Card title="使用指令" :body-style="{ minHeight: '5rem' }">
+    <Card title="Use Directive" :body-style="{ minHeight: '5rem' }">
       <template #extra>
-        <Button type="primary" @click="showCard1 = false">重载</Button>
+        <Button type="primary" @click="showCard1 = false">Reload</Button>
       </template>
       <div>
         <div class="relative flex gap-2 overflow-hidden" v-if="showCard1">
@@ -81,7 +82,7 @@ function openDocPage() {
     </Card>
     <Card
       class="mt-2"
-      title="使用组件（将内部作为一个整体添加动画）"
+      title="Use Component (Treat the inside as a whole to add animations)"
       :body-style="{ padding: 0 }"
     >
       <div class="relative flex-center min-h-32 gap-2 overflow-hidden">
@@ -90,13 +91,16 @@ function openDocPage() {
           v-if="showCard2"
           class="flex items-center gap-2"
         >
-          <Button size="large">这个按钮在显示时会有动画效果</Button>
-          <span>附属组件，会作为整体处理动画</span>
+          <Button size="large">
+            This button will have an animation effect when displayed
+          </Button>
+          <span>Auxiliary component, which will be processed as a whole for
+            animation</span>
         </Motion>
       </div>
       <div class="relative flex-center min-h-32 gap-2 overflow-hidden">
         <div v-if="showCard2" class="flex items-center gap-2">
-          <span>顺序延迟</span>
+          <span>Sequential Delay</span>
           <Motion
             v-bind="{
               ...motionProps,
@@ -113,7 +117,7 @@ function openDocPage() {
         <Form :model="motionProps" :label-col="{ span: 10 }">
           <Row>
             <Col :span="8">
-              <FormItem prop="preset" label="动画效果">
+              <FormItem prop="preset" label="Animation">
                 <Select v-model:value="motionProps.preset">
                   <Select.Option
                     :value="preset"
@@ -126,22 +130,22 @@ function openDocPage() {
               </FormItem>
             </Col>
             <Col :span="8">
-              <FormItem prop="duration" label="持续时间">
+              <FormItem prop="duration" label="Duration">
                 <InputNumber v-model:value="motionProps.duration" />
               </FormItem>
             </Col>
             <Col :span="8">
-              <FormItem prop="delay" label="延迟动画">
+              <FormItem prop="delay" label="Delay Animation">
                 <InputNumber v-model:value="motionProps.delay" />
               </FormItem>
             </Col>
             <Col :span="8">
-              <FormItem prop="hovered.scale" label="Hover缩放">
+              <FormItem prop="hovered.scale" label="Hover Scale">
                 <InputNumber v-model:value="motionProps.hovered.scale" />
               </FormItem>
             </Col>
             <Col :span="8">
-              <FormItem prop="hovered.tapped" label="按下时缩放">
+              <FormItem prop="hovered.tapped" label="Tapped Scale">
                 <InputNumber v-model:value="motionProps.tapped.scale" />
               </FormItem>
             </Col>
@@ -151,7 +155,7 @@ function openDocPage() {
     </Card>
     <Card
       class="mt-2"
-      title="分组动画（每个子元素都会应用相同的独立动画）"
+      title="Group Animation (Each child element will apply the same independent animation)"
       :body-style="{ padding: 0 }"
     >
       <div class="relative flex-center min-h-32 gap-2 overflow-hidden">
@@ -167,7 +171,7 @@ function openDocPage() {
         <Form :model="motionGroupProps" :label-col="{ span: 10 }">
           <Row>
             <Col :span="8">
-              <FormItem prop="preset" label="动画效果">
+              <FormItem prop="preset" label="Animation">
                 <Select v-model:value="motionGroupProps.preset">
                   <Select.Option
                     :value="preset"
@@ -180,22 +184,22 @@ function openDocPage() {
               </FormItem>
             </Col>
             <Col :span="8">
-              <FormItem prop="duration" label="持续时间">
+              <FormItem prop="duration" label="Duration">
                 <InputNumber v-model:value="motionGroupProps.duration" />
               </FormItem>
             </Col>
             <Col :span="8">
-              <FormItem prop="delay" label="延迟动画">
+              <FormItem prop="delay" label="Delay Animation">
                 <InputNumber v-model:value="motionGroupProps.delay" />
               </FormItem>
             </Col>
             <Col :span="8">
-              <FormItem prop="hovered.scale" label="Hover缩放">
+              <FormItem prop="hovered.scale" label="Hover Scale">
                 <InputNumber v-model:value="motionGroupProps.hovered.scale" />
               </FormItem>
             </Col>
             <Col :span="8">
-              <FormItem prop="hovered.tapped" label="按下时缩放">
+              <FormItem prop="hovered.tapped" label="Tapped Scale">
                 <InputNumber v-model:value="motionGroupProps.tapped.scale" />
               </FormItem>
             </Col>

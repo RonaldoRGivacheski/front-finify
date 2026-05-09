@@ -14,11 +14,11 @@ const [Form] = useVbenForm({
     {
       component: 'Input',
       componentProps: {
-        placeholder: 'KeepAlive测试：内部组件',
+        placeholder: 'KeepAlive Testing: Internal Components',
       },
       fieldName: 'field1',
       hideLabel: true,
-      label: '字段1',
+      label: 'Field 1',
     },
   ],
   showDefaultActions: false,
@@ -36,12 +36,17 @@ const [Drawer, drawerApi] = useVbenDrawer({
 });
 </script>
 <template>
-  <Drawer append-to-main title="基础抽屉示例" title-tooltip="标题提示内容">
+  <Drawer
+    append-to-main
+    title="Basic Drawer Example"
+    title-tooltip="Title tooltip content"
+  >
     <template #extra> extra </template>
-    此弹窗指定在内容区域打开，并且在关闭之后弹窗内容不会被销毁
+    This drawer is specified to open in the content area, and its content will
+    not be destroyed after closing.
     <Input
       v-model:value="value"
-      placeholder="KeepAlive测试:connectedComponent"
+      placeholder="KeepAlive Testing: connectedComponent"
     />
     <Form />
   </Drawer>

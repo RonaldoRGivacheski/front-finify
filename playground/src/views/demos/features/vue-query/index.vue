@@ -13,19 +13,19 @@ const showCaching = refAutoReset(true, 1000);
 </script>
 
 <template>
-  <Page title="Vue Query示例">
+  <Page title="Vue Query Demo">
     <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
-      <Card title="分页查询">
+      <Card title="Paginated Queries">
         <PaginatedQueries />
       </Card>
-      <Card title="无限滚动">
+      <Card title="Infinite Queries">
         <InfiniteQueries class="h-75 overflow-auto" />
       </Card>
-      <Card title="错误重试">
+      <Card title="Query Retries">
         <QueryRetries />
       </Card>
       <Card
-        title="并发和缓存"
+        title="Concurrency Caching"
         v-spinning="!showCaching"
         :body-style="{ minHeight: '330px' }"
       >
@@ -33,7 +33,7 @@ const showCaching = refAutoReset(true, 1000);
           <Button @click="showCaching = false">重新加载</Button>
         </template>
         <ConcurrencyCaching v-if="showCaching" />
-        <Empty v-else description="正在加载..." />
+        <Empty v-else description="Loading..." />
       </Card>
     </div>
   </Page>

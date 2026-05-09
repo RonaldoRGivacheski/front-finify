@@ -13,11 +13,13 @@ const index = computed(() => {
   return route.params?.id ?? -1;
 });
 
-setTabTitle(`No.${index.value} - 详情信息`);
+setTabTitle(`No.${index.value} - Detail`);
 </script>
 
 <template>
-  <Page :title="`标签页${index}详情页`">
-    <template #description> {{ index }} - 详情页内容在此 </template>
+  <Page :title="`Tab ${index} Detail Page`">
+    <template #description>
+      {{ index }} - Detail page content is here
+    </template>
   </Page>
 </template>

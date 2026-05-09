@@ -12,38 +12,38 @@ import { useVbenForm } from '#/adapter/form';
 const isReverseActionButtons = ref(false);
 
 const [BaseForm, formApi] = useVbenForm({
-  // 翻转操作按钮的位置
+  // Reverse the position of the action buttons
   actionButtonsReverse: isReverseActionButtons.value,
-  // 所有表单项共用，可单独在表单内覆盖
+  // All form items share, can be individually overwritten in the form
   commonConfig: {
-    // 所有表单项
+    // All form items
     componentProps: {
       class: 'w-full',
     },
   },
-  // 使用 tailwindcss grid布局
-  // 提交函数
+  // Use tailwindcss grid layout
+  // Submit function
   handleSubmit: onSubmit,
-  // 垂直布局，label和input在不同行，值为vertical
+  // Vertical layout, label and input in different rows, value is vertical
   layout: 'horizontal',
-  // 水平布局，label和input在同一行
+  // Horizontal layout, label and input in the same row
   schema: [
     {
-      // 组件需要在 #/adapter.ts内注册，并加上类型
+      // Components need to be registered in #/adapter.ts and have types
       component: 'Input',
-      // 对应组件的参数
+      // Component parameters
       componentProps: {
-        placeholder: '请输入用户名',
+        placeholder: 'Please enter your username',
       },
-      // 字段名
+      // Field name
       fieldName: 'field1',
-      // 界面显示的label
+      // Label displayed on the interface
       label: 'field1',
     },
     {
       component: 'Input',
       componentProps: {
-        placeholder: '请输入',
+        placeholder: 'Please enter',
       },
       fieldName: 'field2',
       label: 'field2',
@@ -55,22 +55,22 @@ const [BaseForm, formApi] = useVbenForm({
         filterOption: true,
         options: [
           {
-            label: '选项1',
+            label: 'option1',
             value: '1',
           },
           {
-            label: '选项2',
+            label: 'option2',
             value: '2',
           },
         ],
-        placeholder: '请选择',
+        placeholder: 'Please select',
         showSearch: true,
       },
       fieldName: 'fieldOptions',
-      label: '下拉选',
+      label: 'Select',
     },
   ],
-  // 大屏一行显示3个，中屏一行显示2个，小屏一行显示1个
+  // Large screen displays 3 items per row, medium screen displays 2 items per row, small screen displays 1 item per row
   wrapperClass: 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3',
 });
 
@@ -133,7 +133,7 @@ function handleClick(
       break;
     }
     case 'componentRef': {
-      // 获取下拉组件的实例，并调用它的focus方法
+      // Get the instance of the drop-down component and call its focus method
       formApi.getFieldComponentRef<RefSelectProps>('fieldOptions')?.focus?.();
       break;
     }
@@ -193,7 +193,7 @@ function handleClick(
 
     case 'updateActionAlign': {
       formApi.setState({
-        // 可以自行调整class
+        // You can adjust the class yourself
         actionWrapperClass: 'text-center',
       });
       break;
@@ -210,15 +210,15 @@ function handleClick(
           componentProps: {
             options: [
               {
-                label: '选项1',
+                label: 'Option 1',
                 value: '1',
               },
               {
-                label: '选项2',
+                label: 'Option 2',
                 value: '2',
               },
               {
-                label: '选项3',
+                label: 'Option 3',
                 value: '3',
               },
             ],
@@ -226,7 +226,9 @@ function handleClick(
           fieldName: 'fieldOptions',
         },
       ]);
-      message.success('字段 `fieldOptions` 下拉选项更新成功。');
+      message.success(
+        'Field `fieldOptions` dropdown options updated successfully.',
+      );
       break;
     }
     case 'updateSubmitButton': {
@@ -240,34 +242,46 @@ function handleClick(
 </script>
 
 <template>
-  <Page description="表单组件api操作示例。" title="表单组件">
+  <Page description="Form component api usage example." title="Form Component">
     <Space class="mb-5 flex-wrap">
       <Button @click="handleClick('updateSchema')">updateSchema</Button>
-      <Button @click="handleClick('labelWidth')">更改labelWidth</Button>
-      <Button @click="handleClick('resetLabelWidth')">还原labelWidth</Button>
-      <Button @click="handleClick('disabled')">禁用表单</Button>
-      <Button @click="handleClick('resetDisabled')">解除禁用</Button>
+      <Button @click="handleClick('labelWidth')">Update labelWidth</Button>
+      <Button @click="handleClick('resetLabelWidth')">
+        Restore labelWidth
+      </Button>
+      <Button @click="handleClick('disabled')">Disable Form</Button>
+      <Button @click="handleClick('resetDisabled')">Enable Form</Button>
       <Button @click="handleClick('reverseActionButtons')">
-        翻转操作按钮位置
+        Flip action button position
       </Button>
-      <Button @click="handleClick('hiddenAction')">隐藏操作按钮</Button>
-      <Button @click="handleClick('showAction')">显示操作按钮</Button>
-      <Button @click="handleClick('hiddenResetButton')">隐藏重置按钮</Button>
-      <Button @click="handleClick('showResetButton')">显示重置按钮</Button>
-      <Button @click="handleClick('hiddenSubmitButton')">隐藏提交按钮</Button>
-      <Button @click="handleClick('showSubmitButton')">显示提交按钮</Button>
-      <Button @click="handleClick('updateResetButton')">修改重置按钮</Button>
-      <Button @click="handleClick('updateSubmitButton')">修改提交按钮</Button>
+      <Button @click="handleClick('hiddenAction')">Hide action button</Button>
+      <Button @click="handleClick('showAction')">Show action button</Button>
+      <Button @click="handleClick('hiddenResetButton')">
+        Hide reset button
+      </Button>
+      <Button @click="handleClick('showResetButton')">Show reset button</Button>
+      <Button @click="handleClick('hiddenSubmitButton')">
+        Hide submit button
+      </Button>
+      <Button @click="handleClick('showSubmitButton')">
+        Show submit button
+      </Button>
+      <Button @click="handleClick('updateResetButton')">
+        Update reset button
+      </Button>
+      <Button @click="handleClick('updateSubmitButton')">
+        Update submit button
+      </Button>
       <Button @click="handleClick('updateActionAlign')">
-        调整操作按钮位置
+        Adjust action button position
       </Button>
-      <Button @click="handleClick('batchAddSchema')"> 批量添加表单项 </Button>
+      <Button @click="handleClick('batchAddSchema')"> Add Form Item </Button>
       <Button @click="handleClick('batchDeleteSchema')">
-        批量删除表单项
+        Delete Form Item
       </Button>
-      <Button @click="handleClick('componentRef')">下拉组件获取焦点</Button>
+      <Button @click="handleClick('componentRef')">Focus Dropdown</Button>
     </Space>
-    <Card title="操作示例">
+    <Card title="Operation Example">
       <BaseForm />
     </Card>
   </Page>

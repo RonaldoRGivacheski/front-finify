@@ -11,7 +11,7 @@ const [Drawer, drawerApi] = useVbenDrawer({
     message.info('onConfirm');
     // drawerApi.close();
   },
-  title: '动态修改配置示例',
+  title: 'Dynamic Configuration Update Example',
 });
 
 // const state = drawerApi.useStore();
@@ -24,7 +24,7 @@ function handleUpdateTitle() {
   <Drawer>
     <div class="flex-col-center">
       <Button class="mb-3" type="primary" @click="handleUpdateTitle()">
-        内部动态修改标题
+        Dynamic Title Update
       </Button>
     </div>
   </Drawer>

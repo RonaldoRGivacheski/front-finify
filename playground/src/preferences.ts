@@ -11,9 +11,11 @@ interface PlaygroundPreferencesExtension {
 }
 
 /**
- * @description 项目配置文件
- * 只需要覆盖项目中的一部分配置，不需要的配置不用覆盖，会自动使用默认配置
- * !!! 更改配置后请清空缓存，否则可能不生效
+ * @description Project configuration file
+ * only need to override some of the configuration in the project,
+ * do not need to override the configuration that is not needed,
+ * it will automatically use the default configuration
+ * !!! after changing the configuration, please clear the cache, otherwise it may not take effect
  */
 export const overridesPreferences = defineOverridesPreferences({
   // overrides
@@ -79,6 +81,38 @@ export const preferencesExtension =
             value: 'warning',
           },
         ],
+      },
+      {
+        app: {
+          locale: 'pt-BR',
+        },
+        breadcrumb: {
+          showHome: true,
+          styleType: 'background',
+        },
+        copyright: {
+          companyName: 'Finify',
+          companySiteLink: 'https://www.finify.com.br',
+          date: '2026',
+        },
+        footer: {
+          enable: true,
+        },
+        sidebar: {
+          collapsedButton: false,
+        },
+        tabbar: {
+          maxCount: 10,
+          middleClickToClose: true,
+        },
+        theme: {
+          mode: 'auto',
+        },
+        widget: {
+          sidebarToggle: false,
+          themeToggle: false,
+          timezone: false,
+        },
       },
     ],
   });

@@ -26,14 +26,54 @@ const playgroundPreferences =
   getCustomPreferences<PlaygroundPreferencesExtension>();
 
 const demoTasks: DemoTaskItem[] = [
-  { id: 1, owner: 'Luna', priority: 'P0', title: '同步租户配置到缓存' },
-  { id: 2, owner: 'Aiden', priority: 'P1', title: '补充角色权限回归用例' },
-  { id: 3, owner: 'Mia', priority: 'P0', title: '修复看板接口超时重试' },
-  { id: 4, owner: 'Noah', priority: 'P2', title: '整理本周运营周报模板' },
-  { id: 5, owner: 'Ethan', priority: 'P1', title: '验证暗黑主题下图表对比度' },
-  { id: 6, owner: 'Sophia', priority: 'P1', title: '更新埋点字段映射文档' },
-  { id: 7, owner: 'Lucas', priority: 'P2', title: '检查消息中心未读状态同步' },
-  { id: 8, owner: 'Emma', priority: 'P0', title: '补齐导出任务失败告警' },
+  {
+    id: 1,
+    owner: 'Luna',
+    priority: 'P0',
+    title: 'Sync tenant configuration to cache',
+  },
+  {
+    id: 2,
+    owner: 'Aiden',
+    priority: 'P1',
+    title: 'Supplement role permission regression test cases',
+  },
+  {
+    id: 3,
+    owner: 'Mia',
+    priority: 'P0',
+    title: 'Fix dashboard interface timeout retry',
+  },
+  {
+    id: 4,
+    owner: 'Noah',
+    priority: 'P2',
+    title: "Organize this week's operation weekly report template",
+  },
+  {
+    id: 5,
+    owner: 'Ethan',
+    priority: 'P1',
+    title: 'Verify the contrast of the chart under dark theme',
+  },
+  {
+    id: 6,
+    owner: 'Sophia',
+    priority: 'P1',
+    title: 'Update the buried point field mapping document',
+  },
+  {
+    id: 7,
+    owner: 'Lucas',
+    priority: 'P2',
+    title: 'Check the synchronization of unread messages in the message center',
+  },
+  {
+    id: 8,
+    owner: 'Emma',
+    priority: 'P0',
+    title: 'Supplement the export task failure alert',
+  },
 ];
 
 const toneMap = {

@@ -29,10 +29,10 @@ const inputComponent = h(Input);
 </script>
 
 <template>
-  <Page title="图标">
+  <Page title="Icons">
     <template #description>
       <div class="mt-2 text-foreground/80">
-        图标可在
+        Icons can be found in
         <a
           class="text-primary"
           href="https://icon-sets.iconify.design/"
@@ -40,7 +40,8 @@ const inputComponent = h(Input);
         >
           Iconify
         </a>
-        中查找，支持多种图标库，如 Material Design, Font Awesome, Jam Icons 等。
+        and supports multiple icon libraries, such as Material Design, Font
+        Awesome, Jam Icons, etc.
       </div>
     </template>
 
@@ -78,17 +79,17 @@ const inputComponent = h(Input);
       </div>
     </Card>
 
-    <Card class="mb-5" title="图标选择器">
+    <Card class="mb-5" title="Icon Picker">
       <div class="mb-5 flex items-center gap-5">
-        <span>原始样式(Iconify):</span>
+        <span>Original Style(Iconify):</span>
         <IconPicker v-model="iconValue1" class="w-50" />
       </div>
       <div class="mb-5 flex items-center gap-5">
-        <span>原始样式(svg):</span>
+        <span>Original Style(svg):</span>
         <IconPicker v-model="iconValue2" class="w-50" prefix="svg" />
       </div>
       <div class="mb-5 flex items-center gap-5">
-        <span>自定义Input:</span>
+        <span>Custom Input:</span>
         <IconPicker
           :input-component="inputComponent"
           v-model="iconValue3"
@@ -98,11 +99,11 @@ const inputComponent = h(Input);
         />
       </div>
       <div class="flex items-center gap-5">
-        <span>显示为一个Icon:</span>
+        <span>Display as an Icon:</span>
         <Input
           v-model:value="iconValue4"
           allow-clear
-          placeholder="点击这里选择图标"
+          placeholder="Click here to select an icon"
           class="w-75"
         >
           <template #addonAfter>

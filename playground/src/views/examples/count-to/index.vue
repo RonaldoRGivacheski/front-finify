@@ -36,13 +36,13 @@ const props = reactive<CountToProps & { transition: TransitionPresets }>({
     fontSize: 'xx-large',
     fontWeight: 'bold',
   },
-  prefix: '￥',
+  prefix: '$',
   prefixStyle: {
     paddingRight: '0.5rem',
   },
   separator: ',',
   startVal: 0,
-  suffix: '元',
+  suffix: 'USD',
   suffixStyle: {
     paddingLeft: '0.5rem',
   },
@@ -60,7 +60,7 @@ function openDocumentation() {
 
 function onStarted() {
   message.loading({
-    content: '动画已开始',
+    content: 'Animation started',
     duration: 0,
     key: 'animator-info',
   });
@@ -68,35 +68,40 @@ function onStarted() {
 
 function onFinished() {
   message.success({
-    content: '动画已结束',
+    content: 'Animation finished',
     duration: 2,
     key: 'animator-info',
   });
 }
 </script>
 <template>
-  <Page title="CountTo" description="数字滚动动画组件。使用">
+  <Page
+    title="CountTo"
+    description="A digital scrolling animation component. (Usage)"
+  >
     <template #description>
       <span>
-        使用useTransition封装的数字滚动动画组件，每次改变当前值都会产生过渡动画。
+        A number rolling animation component wrapped by useTransition. Every
+        time the current value changes, a transition animation will be
+        generated.
       </span>
       <Button type="link" @click="openDocumentation">
-        查看useTransition文档
+        View useTransition documentation
       </Button>
     </template>
-    <Card title="基本用法">
+    <Card title="Basic usage">
       <div class="flex-center w-full pb-4">
         <CountTo v-bind="props" @started="onStarted" @finished="onFinished" />
       </div>
       <Form :model="props">
         <Row :gutter="20">
           <Col :span="8">
-            <FormItem label="初始值" name="startVal">
+            <FormItem label="Initial value" name="startVal">
               <InputNumber v-model:value="props.startVal" />
             </FormItem>
           </Col>
           <Col :span="8">
-            <FormItem label="当前值" name="endVal">
+            <FormItem label="Current value" name="endVal">
               <InputNumber
                 v-model:value="props.endVal"
                 class="w-full"
@@ -104,7 +109,7 @@ function onFinished() {
               >
                 <template #addonAfter>
                   <IconifyIcon
-                    v-tippy="`设置一个随机值`"
+                    v-tippy="`Set a random value`"
                     class="size-5 cursor-pointer outline-hidden"
                     icon="ix:random-filled"
                     @click="changeNumber"
@@ -114,23 +119,23 @@ function onFinished() {
             </FormItem>
           </Col>
           <Col :span="8">
-            <FormItem label="禁用动画" name="disabled">
+            <FormItem label="Disable animation" name="disabled">
               <Switch v-model="props.disabled" />
             </FormItem>
           </Col>
           <Col :span="8">
-            <FormItem label="延迟动画" name="delay">
+            <FormItem label="Delay animation" name="delay">
               <InputNumber v-model:value="props.delay" :min="0" />
             </FormItem>
           </Col>
           <Col :span="8">
-            <FormItem label="持续时间" name="duration">
+            <FormItem label="Animation duration" name="duration">
               <InputNumber v-model:value="props.duration" :min="0" />
             </FormItem>
           </Col>
 
           <Col :span="8">
-            <FormItem label="小数位数" name="decimals">
+            <FormItem label="Decimal places" name="decimals">
               <InputNumber
                 v-model:value="props.decimals"
                 :min="0"
@@ -139,17 +144,17 @@ function onFinished() {
             </FormItem>
           </Col>
           <Col :span="8">
-            <FormItem label="分隔符" name="separator">
+            <FormItem label="Separator" name="separator">
               <Input v-model:value="props.separator" />
             </FormItem>
           </Col>
           <Col :span="8">
-            <FormItem label="小数点" name="decimal">
+            <FormItem label="Decimal" name="decimal">
               <Input v-model:value="props.decimal" />
             </FormItem>
           </Col>
           <Col :span="8">
-            <FormItem label="动画" name="transition">
+            <FormItem label="Transition" name="transition">
               <Select v-model:value="props.transition">
                 <Select.Option
                   v-for="preset in TransitionPresetsKeys"
@@ -162,12 +167,12 @@ function onFinished() {
             </FormItem>
           </Col>
           <Col :span="8">
-            <FormItem label="前缀" name="prefix">
+            <FormItem label="Prefix" name="prefix">
               <Input v-model:value="props.prefix" />
             </FormItem>
           </Col>
           <Col :span="8">
-            <FormItem label="后缀" name="suffix">
+            <FormItem label="Suffix" name="suffix">
               <Input v-model:value="props.suffix" />
             </FormItem>
           </Col>

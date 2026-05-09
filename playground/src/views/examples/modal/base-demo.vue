@@ -8,14 +8,14 @@ const [Modal, modalApi] = useVbenModal({
     modalApi.close();
   },
   onClosed() {
-    message.info('onClosed：关闭动画结束');
+    message.info('onClosed: Closing animation ended');
   },
   onConfirm() {
     message.info('onConfirm');
     // modalApi.close();
   },
   onOpened() {
-    message.info('onOpened：打开动画结束');
+    message.info('onOpened: Opening animation ended');
   },
 });
 
@@ -27,8 +27,12 @@ function lockModal() {
 }
 </script>
 <template>
-  <Modal class="w-150" title="基础弹窗示例" title-tooltip="标题提示内容">
+  <Modal
+    class="w-150"
+    title="Basic Modal Example"
+    title-tooltip="Title tooltip content"
+  >
     base demo
-    <Button type="primary" @click="lockModal">锁定弹窗</Button>
+    <Button type="primary" @click="lockModal">Lock modal</Button>
   </Modal>
 </template>

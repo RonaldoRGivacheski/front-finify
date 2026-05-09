@@ -26,12 +26,12 @@ import SharedDataDemo from './shared-data-demo.vue';
 defineOptions({ name: 'ModalExample' });
 
 const [BaseModal, baseModalApi] = useVbenModal({
-  // 连接抽离的组件
+  // Connection of the separated component
   connectedComponent: BaseDemo,
 });
 
 const [InContentModal, inContentModalApi] = useVbenModal({
-  // 连接抽离的组件
+  // Connection of the separated component
   connectedComponent: InContentModalDemo,
 });
 
@@ -86,8 +86,8 @@ function openDynamicModal() {
 function openSharedModal() {
   sharedModalApi
     .setData({
-      content: '外部传递的数据 content',
-      payload: '外部传递的数据 payload',
+      content: 'External data content',
+      payload: 'External data payload',
     })
     .open();
 }
@@ -101,7 +101,7 @@ function openBlurModal() {
 }
 
 function handleUpdateTitle() {
-  dynamicModalApi.setState({ title: '外部动态标题' }).open();
+  dynamicModalApi.setState({ title: 'Internal dynamic title' }).open();
 }
 
 function openFormModal() {
@@ -115,15 +115,15 @@ function openFormModal() {
 
 function openAlert() {
   alert({
-    content: '这是一个弹窗',
+    content: 'This is a popup',
     icon: 'success',
   }).then(() => {
-    message.info('用户关闭了弹窗');
+    message.info('User closed the popup');
   });
 }
 
 onBeforeUnmount(() => {
-  // 清除所有弹窗
+  // Clear all popups
   clearAllAlerts();
 });
 
@@ -139,35 +139,35 @@ function openConfirm() {
       });
     },
     centered: false,
-    content: '这是一个确认弹窗',
+    content: 'This is a confirmation popup',
     icon: 'question',
   })
     .then(() => {
-      message.success('用户确认了操作');
+      message.success('User confirmed the operation');
     })
     .catch(() => {
-      message.error('用户取消了操作');
+      message.error('User cancelled the operation');
     });
 }
 
 async function openPrompt() {
   prompt<string>({
     async beforeClose({ isConfirm, value }) {
-      if (isConfirm && value === '芝士') {
-        message.error('不能吃芝士');
+      if (isConfirm && value === 'cheese') {
+        message.error('Cannot eat cheese');
         return false;
       }
     },
-    componentProps: { placeholder: '不能吃芝士...' },
-    content: '中午吃了什么？',
+    componentProps: { placeholder: 'Cannot eat cheese...' },
+    content: 'What did you eat for lunch?',
     icon: 'question',
     overlayBlur: 3,
   })
     .then((res) => {
-      message.success(`用户输入了：${res}`);
+      message.success(`User entered: ${res}`);
     })
     .catch(() => {
-      message.error('用户取消了输入');
+      message.error('User cancelled the input');
     });
 }
 </script>
@@ -175,8 +175,8 @@ async function openPrompt() {
 <template>
   <Page
     auto-content-height
-    description="弹窗组件常用于在不离开当前页面的情况下，显示额外的信息、表单或操作提示，更多api请查看组件文档。"
-    title="弹窗组件示例"
+    description="Modal component is often used to display additional information, forms, or operation prompts without leaving the current page. For more APIs, please refer to the component documentation."
+    title="Modal component example"
   >
     <template #extra>
       <DocButton path="/components/common-ui/vben-modal" />
@@ -191,82 +191,95 @@ async function openPrompt() {
     <NestedModal />
     <BlurModal />
     <Flex wrap="wrap" class="w-full" gap="10">
-      <Card class="w-75" title="基本使用">
-        <p>一个基础的弹窗示例</p>
+      <Card class="w-75" title="Basic usage">
+        <p>A basic modal example</p>
         <template #actions>
-          <Button type="primary" @click="openBaseModal">打开弹窗</Button>
+          <Button type="primary" @click="openBaseModal">Open modal</Button>
         </template>
       </Card>
 
-      <Card class="w-75" title="指定容器+关闭后不销毁">
-        <p>在内容区域打开弹窗的示例</p>
+      <Card
+        class="w-75"
+        title="Specified container + not destroyed after closing"
+      >
+        <p>Example of opening a modal in the content area</p>
         <template #actions>
-          <Button type="primary" @click="openInContentModal">打开弹窗</Button>
+          <Button type="primary" @click="openInContentModal">Open modal</Button>
         </template>
       </Card>
 
-      <Card class="w-75" title="内容高度自适应">
-        <p>可根据内容并自动调整高度</p>
+      <Card class="w-75" title="Content height adaptive">
+        <p>
+          Can be adjusted according to the content and automatically adjust the
+          height
+        </p>
         <template #actions>
           <Button type="primary" @click="openAutoHeightModal">
-            打开弹窗
+            Open modal
           </Button>
         </template>
       </Card>
 
-      <Card class="w-75" title="可拖拽示例">
-        <p>配置 draggable 可开启拖拽功能</p>
+      <Card class="w-75" title="Draggable example">
+        <p>Configure draggable to enable drag and drop</p>
         <template #actions>
-          <Button type="primary" @click="openDragModal"> 打开弹窗 </Button>
+          <Button type="primary" @click="openDragModal">Open modal</Button>
         </template>
       </Card>
 
-      <Card class="w-75" title="动态配置示例">
-        <p>通过 setState 动态调整弹窗数据</p>
+      <Card class="w-75" title="Dynamic configuration example">
+        <p>Configure dynamic adjustment of modal data through setState</p>
         <template #extra>
-          <Button type="link" @click="openDynamicModal">打开弹窗</Button>
+          <Button type="link" @click="openDynamicModal">Open modal</Button>
         </template>
         <template #actions>
           <Button type="primary" @click="handleUpdateTitle">
-            外部修改标题并打开
+            External modification title and open
           </Button>
         </template>
       </Card>
 
-      <Card class="w-75" title="内外数据共享示例">
-        <p>通过共享 sharedData 来进行数据交互</p>
+      <Card class="w-75" title="Shared data example">
+        <p>Use sharedData for data interaction</p>
         <template #actions>
           <Button type="primary" @click="openSharedModal">
-            打开弹窗并传递数据
+            Open modal and pass data
           </Button>
         </template>
       </Card>
 
-      <Card class="w-75" title="表单弹窗示例">
-        <p>弹窗与表单结合</p>
+      <Card class="w-75" title="Form modal example">
+        <p>Combine modal and form</p>
         <template #actions>
-          <Button type="primary" @click="openFormModal"> 打开表单弹窗 </Button>
+          <Button type="primary" @click="openFormModal">
+            Open form modal
+          </Button>
         </template>
       </Card>
 
-      <Card class="w-75" title="嵌套弹窗示例">
-        <p>在已经打开的弹窗中再次打开弹窗</p>
+      <Card class="w-75" title="Nested modal example">
+        <p>Open another modal within an already open modal</p>
         <template #actions>
-          <Button type="primary" @click="openNestedModal">打开嵌套弹窗</Button>
+          <Button type="primary" @click="openNestedModal">
+            Open nested modal
+          </Button>
         </template>
       </Card>
 
-      <Card class="w-75" title="遮罩模糊示例">
-        <p>遮罩层应用类似毛玻璃的模糊效果</p>
+      <Card class="w-75" title="Mask blur example">
+        <p>Apply a glass-like blur effect to the mask</p>
         <template #actions>
-          <Button type="primary" @click="openBlurModal">打开弹窗</Button>
+          <Button type="primary" @click="openBlurModal">Open modal</Button>
         </template>
       </Card>
-      <Card class="w-75" title="轻量提示弹窗">
+      <Card class="w-75" title="Lightweight prompt modal">
         <template #extra>
           <DocButton path="/components/common-ui/vben-alert" />
         </template>
-        <p>通过快捷方法创建动态提示弹窗，适合一些轻量的提示和确认、输入等</p>
+        <p>
+          Create dynamic prompt modals through quick methods, suitable for some
+          lightweight prompts, confirmations, and inputs.
+        </p>
         <template #actions>
           <Button type="primary" @click="openAlert">Alert</Button>
           <Button type="primary" @click="openConfirm">Confirm</Button>

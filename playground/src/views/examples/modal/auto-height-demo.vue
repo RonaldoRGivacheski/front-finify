@@ -34,7 +34,7 @@ function handleUpdate(len?: number) {
 </script>
 
 <template>
-  <Modal title="自动计算高度">
+  <Modal title="Auto height">
     <div
       v-for="item in list"
       :key="item"

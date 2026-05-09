@@ -38,15 +38,15 @@ const [FirstForm, firstFormApi] = useVbenForm({
     {
       component: 'Input',
       componentProps: {
-        placeholder: '请输入',
+        placeholder: 'Please enter',
       },
       fieldName: 'formFirst',
-      label: '表单1字段',
+      label: 'Form 1 Field',
       rules: 'required',
     },
   ],
   submitButtonOptions: {
-    content: '下一步',
+    content: 'Next',
   },
   wrapperClass: 'grid-cols-1 md:grid-cols-1 lg:grid-cols-1',
 });
@@ -60,16 +60,16 @@ const [SecondForm, secondFormApi] = useVbenForm({
   handleSubmit: onSecondSubmit,
   layout: 'horizontal',
   resetButtonOptions: {
-    content: '上一步',
+    content: 'Previous Step',
   },
   schema: [
     {
       component: 'Input',
       componentProps: {
-        placeholder: '请输入',
+        placeholder: 'Please enter',
       },
       fieldName: 'formSecond',
-      label: '表单2字段',
+      label: 'Form 2 Field',
       rules: 'required',
     },
   ],
@@ -88,23 +88,23 @@ async function handleMergeSubmit() {
 
 <template>
   <Page
-    description="表单组件合并示例：在某些场景下，例如分步表单，需要合并多个表单并统一提交。默认情况下，使用 Object.assign 规则合并表单。如果需要特殊处理数据，可以传入 false。"
-    title="表单组件"
+    description="Example of merging form components: In some scenarios, such as multi-step forms, you may need to merge multiple forms and submit them together. By default, the merge uses Object.assign rules. If you need to process the data specially, you can pass false."
+    title="Form Components"
   >
-    <Card title="基础示例">
+    <Card title="Basic Example">
       <template #extra>
         <Switch
           v-model:checked="needMerge"
-          checked-children="开启字段合并"
+          checked-children="Enable Field Merge"
           class="mr-4"
-          un-checked-children="关闭字段合并"
+          un-checked-children="Disable Field Merge"
         />
-        <Button type="primary" @click="handleMergeSubmit">合并提交</Button>
+        <Button type="primary" @click="handleMergeSubmit">Merge Submit</Button>
       </template>
       <div class="mx-auto max-w-lg">
         <Steps :current="currentTab" class="steps">
-          <Step title="表单1" />
-          <Step title="表单2" />
+          <Step title="Form 1" />
+          <Step title="Form 2" />
         </Steps>
         <div class="p-20">
           <FirstForm v-show="currentTab === 0" />

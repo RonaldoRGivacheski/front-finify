@@ -110,11 +110,11 @@ const loginRef =
 
 async function onSubmit(params: Recordable<any>) {
   authStore.authLogin(params).catch(() => {
-    // 登陆失败，刷新验证码的演示
+    // Login failed, refresh the verification code demo
     const formApi = loginRef.value?.getFormApi();
-    // 重置验证码组件的值
+    // Reset the value of the verification code component
     formApi?.setFieldValue('captcha', false, false);
-    // 使用表单API获取验证码组件实例，并调用其resume方法来重置验证码
+    // Use form API to get the instance of the verification code component and call its resume method to reset the verification code
     formApi
       ?.getFieldComponentRef<InstanceType<typeof SliderCaptcha>>('captcha')
       ?.resume();

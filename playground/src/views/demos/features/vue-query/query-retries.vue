@@ -28,7 +28,7 @@ const onClick = async () => {
 </script>
 
 <template>
-  <Button :loading="isFetching" @click="onClick"> 发起错误重试 </Button>
-  <p v-if="count > 0" class="my-3">重试次数{{ count }}</p>
+  <Button :loading="isFetching" @click="onClick"> Trigger Retry </Button>
+  <p v-if="count > 0" class="my-3">Retry Count: {{ count }}</p>
   <p>{{ error }}</p>
 </template>

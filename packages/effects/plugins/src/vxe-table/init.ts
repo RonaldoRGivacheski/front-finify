@@ -19,7 +19,8 @@ import {
   VxeUI,
   VxeUpload,
 } from 'vxe-pc-ui';
-import enUS from 'vxe-pc-ui/lib/language/en-US'; // 导入默认的语言
+import enUS from 'vxe-pc-ui/lib/language/en-US';
+import ptBR from 'vxe-pc-ui/lib/language/pt-BR';
 import zhCN from 'vxe-pc-ui/lib/language/zh-CN';
 import {
   VxeColgroup,
@@ -30,9 +31,9 @@ import {
 } from 'vxe-table';
 
 import { injectPluginsOptions } from '../plugins-context';
-import { extendsDefaultFormatter } from './extends'; // 是否加载过
+import { extendsDefaultFormatter } from './extends';
 
-// 是否加载过
+// whether it has been loaded
 let isInit = false;
 
 let tableFormFactory: ((...args: any[]) => any) | undefined;
@@ -61,7 +62,9 @@ export function useTableForm(...args: any[]) {
   return factory(...args);
 }
 
-// 部分组件，如果没注册，vxe-table 会报错，这里实际没用组件，只是为了不报错，同时可以减少打包体积
+// Some components, if not registered, vxe-table will report an error,
+// here actually does not use the component, just to avoid errors,
+// while reducing the package size
 const createVirtualComponent = (name = '') => {
   return defineComponent({
     name,
@@ -113,15 +116,17 @@ export function setupVbenVxeTable(setupOptions: SetupVxeTable) {
 
   initVxeTable();
 
-  // 优先使用参数传入的 useVbenForm，否则清空让 context 注入生效
+  // Use the useVbenForm passed in the parameters first,
+  // otherwise clear it to let the context injection take effect
   if (useVbenFormFromParam) {
     tableFormFactory = useVbenFormFromParam;
   }
   const { isDark, locale } = usePreferences();
 
-  const localMap = {
+  const localMap: Record<string, any> = {
     'zh-CN': normalizeVxeLocale(zhCN),
     'en-US': normalizeVxeLocale(enUS),
+    'pt-BR': normalizeVxeLocale(ptBR),
   };
 
   watch(

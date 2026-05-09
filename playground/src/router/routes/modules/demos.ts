@@ -14,7 +14,7 @@ const routes: RouteRecordRaw[] = [
     name: 'Demos',
     path: '/demos',
     children: [
-      // 权限控制
+      // Access Control
       {
         meta: {
           icon: 'mdi:shield-key-outline',
@@ -86,7 +86,7 @@ const routes: RouteRecordRaw[] = [
           },
         ],
       },
-      // 功能
+      // Features
       {
         meta: {
           icon: 'mdi:feature-highlight',
@@ -272,7 +272,7 @@ const routes: RouteRecordRaw[] = [
           },
         ],
       },
-      // 面包屑导航
+      // Breadcrumb Navigation
       {
         name: 'BreadcrumbDemos',
         path: '/demos/breadcrumb',
@@ -322,7 +322,7 @@ const routes: RouteRecordRaw[] = [
           },
         ],
       },
-      // 缺省页
+      // Fallback Pages
       {
         meta: {
           icon: 'mdi:lightbulb-error-outline',
@@ -370,7 +370,7 @@ const routes: RouteRecordRaw[] = [
           },
         ],
       },
-      // 菜单徽标
+      // Menu Badges
       {
         meta: {
           badgeType: 'dot',
@@ -414,7 +414,7 @@ const routes: RouteRecordRaw[] = [
           },
         ],
       },
-      // 菜单激活图标
+      // Menu Active Icon
       {
         meta: {
           activeIcon: 'fluent-emoji:radioactive',
@@ -436,7 +436,7 @@ const routes: RouteRecordRaw[] = [
           },
         ],
       },
-      // 外部链接
+      // External Links
       {
         meta: {
           icon: 'ic:round-settings-input-composite',
@@ -509,7 +509,7 @@ const routes: RouteRecordRaw[] = [
           },
         ],
       },
-      // 嵌套菜单
+      // Nested Menus
       {
         meta: {
           icon: 'ic:round-menu',

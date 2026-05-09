@@ -11,8 +11,8 @@ const { copy, text } = useClipboard({ legacy: true, source });
 </script>
 
 <template>
-  <Page title="剪切板示例">
-    <Card title="基本使用">
+  <Page title="Clipboard Demo">
+    <Card title="Basic Usage">
       <p class="mb-3">
         Current copied: <code>{{ text || 'none' }}</code>
       </p>

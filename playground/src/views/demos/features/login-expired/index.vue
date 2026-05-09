@@ -18,22 +18,32 @@ async function handleClick(type: LoginExpiredModeType) {
 </script>
 
 <template>
-  <Page title="登录过期演示">
+  <Page title="Login Expired Demo">
     <template #description>
       <div class="mt-2 text-foreground/80">
-        接口请求遇到401状态码时，需要重新登录。有两种方式：
-        <p>1.转到登录页，登录成功后跳转回原页面</p>
+        When an interface request encounters a 401 status code, you need to log
+        in again. There are two ways:
         <p>
-          2.弹出重新登录弹窗，登录后关闭弹窗，不进行任何页面跳转（刷新后还是会跳转登录页面）
+          1. Redirect to the login page, and jump back to the original page
+          after successful login
+        </p>
+        <p>
+          2. Pop up a relogin dialog, close the dialog after login, and do not
+          perform any page jumps (it will still jump to the login page after
+          refresh)
         </p>
       </div>
     </template>
 
-    <Card class="mb-5" title="跳转登录页面方式">
-      <Button type="primary" @click="handleClick('page')"> 点击触发 </Button>
+    <Card class="mb-5" title="Redirect to the login page">
+      <Button type="primary" @click="handleClick('page')">
+        Click to trigger
+      </Button>
     </Card>
-    <Card class="mb-5" title="登录弹窗方式">
-      <Button type="primary" @click="handleClick('modal')"> 点击触发 </Button>
+    <Card class="mb-5" title="Login dialog method">
+      <Button type="primary" @click="handleClick('modal')">
+        Click to trigger
+      </Button>
     </Card>
   </Page>
 </template>

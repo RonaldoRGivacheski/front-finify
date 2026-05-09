@@ -10,32 +10,32 @@ import { useVbenForm, z } from '#/adapter/form';
 import TwoFields from './modules/two-fields.vue';
 
 const [Form] = useVbenForm({
-  // 所有表单项共用，可单独在表单内覆盖
+  // This feature is shared by all form fields and can be overridden individually within a form.
   commonConfig: {
-    // 所有表单项
+    // All form items
     componentProps: {
       class: 'w-full',
     },
     labelClass: 'w-2/6',
   },
   fieldMappingTime: [['field4', ['phoneType', 'phoneNumber'], null]],
-  // 提交函数
+  // Submission function
   handleSubmit: onSubmit,
-  // 垂直布局，label和input在不同行，值为vertical
-  // 水平布局，label和input在同一行
+  // Vertical layout, label and input in different rows, value is vertical
+  // Horizontal layout, label and input in the same row
   layout: 'horizontal',
   schema: [
     {
-      // 组件需要在 #/adapter.ts内注册，并加上类型
+      // The component needs to be registered in #/adapter.ts and a type added
       component: 'Input',
       fieldName: 'field',
-      label: '自定义后缀',
+      label: 'Custom suffix',
       suffix: () => h('span', { class: 'text-red-600' }, '元'),
     },
     {
       component: 'Input',
       fieldName: 'field1',
-      label: '自定义组件slot',
+      label: 'Custom component slot',
       renderComponentContent: () => ({
         prefix: () => 'prefix',
         suffix: () => 'suffix',
@@ -44,14 +44,14 @@ const [Form] = useVbenForm({
     {
       component: h(Input, { placeholder: '请输入Field2' }),
       fieldName: 'field2',
-      label: '自定义组件',
+      label: 'Custom component',
       modelPropName: 'value',
       rules: 'required',
     },
     {
       component: 'Input',
       fieldName: 'field3',
-      label: '自定义组件(slot)',
+      label: 'Custom component (slot)',
       rules: 'required',
     },
     {
@@ -60,23 +60,22 @@ const [Form] = useVbenForm({
       disabledOnChangeListener: false,
       fieldName: 'field4',
       formItemClass: 'col-span-1',
-      label: '组合字段',
+      label: 'Combined field',
       rules: z
         .array(z.string().optional())
-        .length(2, '请选择类型并输入手机号码')
+        .length(2, 'Please select a type and enter a phone number')
         .refine((v) => !!v[0], {
-          message: '请选择类型',
+          message: 'Please select a type',
         })
         .refine((v) => !!v[1] && v[1] !== '', {
-          message: '　　　　　　　输入手机号码',
+          message: '　　　　　　　Please enter a phone number',
         })
         .refine((v) => v[1]?.match(/^1[3-9]\d{9}$/), {
-          // 使用全角空格占位，将错误提示文字挤到手机号码输入框的下面
-          message: '　　　　　　　号码格式不正确',
+          message: '　　　　　　　Incorrect phone number format',
         }),
     },
   ],
-  // 中屏一行显示2个，小屏一行显示1个
+  // Two fields per line on medium screens, one field per line on small screens
   wrapperClass: 'grid-cols-1 md:grid-cols-2',
 });
 
@@ -88,11 +87,11 @@ function onSubmit(values: Record<string, any>) {
 </script>
 
 <template>
-  <Page description="表单组件自定义示例" title="表单组件">
-    <Card title="基础示例">
+  <Page description="Custom form component example" title="Form component">
+    <Card title="Basic example">
       <Form>
         <template #field3="slotProps">
-          <Input placeholder="请输入" v-bind="slotProps" />
+          <Input placeholder="Please enter" v-bind="slotProps" />
         </template>
       </Form>
     </Card>

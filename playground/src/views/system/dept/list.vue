@@ -23,7 +23,7 @@ const [FormModal, formModalApi] = useVbenModal({
 });
 
 /**
- * 编辑部门
+ * Edit department
  * @param row
  */
 function onEdit(row: SystemDeptApi.SystemDept) {
@@ -31,7 +31,7 @@ function onEdit(row: SystemDeptApi.SystemDept) {
 }
 
 /**
- * 添加下级部门
+ * Add subordinate department
  * @param row
  */
 function onAppend(row: SystemDeptApi.SystemDept) {
@@ -39,14 +39,14 @@ function onAppend(row: SystemDeptApi.SystemDept) {
 }
 
 /**
- * 创建新部门
+ * Create a new department
  */
 function onCreate() {
   formModalApi.setData(null).open();
 }
 
 /**
- * 删除部门
+ * Delete department
  * @param row
  */
 function onDelete(row: SystemDeptApi.SystemDept) {
@@ -69,7 +69,7 @@ function onDelete(row: SystemDeptApi.SystemDept) {
 }
 
 /**
- * 表格操作按钮的回调函数
+ * Table operation button callback function
  */
 function onActionClick({
   code,
@@ -122,7 +122,7 @@ const [Grid, gridApi] = useVbenVxeGrid({
 });
 
 /**
- * 刷新表格
+ * Refresh table
  */
 function refreshGrid() {
   gridApi.query();

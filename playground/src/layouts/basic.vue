@@ -39,51 +39,51 @@ const notifications = ref<NotificationItem[]>([
   {
     id: 1,
     avatar: 'https://avatar.vercel.sh/vercel.svg?text=VB',
-    date: '3小时前',
+    date: '3 hours ago',
     isRead: true,
-    message: '描述信息描述信息描述信息',
-    title: '收到了 14 份新周报',
+    message: 'description description description',
+    title: 'Received 14 new weekly reports',
   },
   {
     id: 2,
     avatar: 'https://avatar.vercel.sh/1',
-    date: '刚刚',
+    date: 'Just now',
     isRead: false,
-    message: '描述信息描述信息描述信息',
-    title: '朱偏右 回复了你',
+    message: 'description description description',
+    title: 'Zhu Pianyou replied to you',
   },
   {
     id: 3,
     avatar: 'https://avatar.vercel.sh/1',
     date: '2024-01-01',
     isRead: false,
-    message: '描述信息描述信息描述信息',
-    title: '曲丽丽 评论了你',
+    message: 'description description description',
+    title: 'Qu Lili commented on your post',
   },
   {
     id: 4,
     avatar: 'https://avatar.vercel.sh/satori',
-    date: '1天前',
+    date: '1 day ago',
     isRead: false,
-    message: '描述信息描述信息描述信息',
-    title: '代办提醒',
+    message: 'description description description',
+    title: 'Todo reminder',
   },
   {
     id: 5,
     avatar: 'https://avatar.vercel.sh/satori',
-    date: '1天前',
+    date: '1 day ago',
     isRead: false,
-    message: '描述信息描述信息描述信息',
-    title: '跳转Workspace示例',
+    message: 'description description description',
+    title: 'Workspace example',
     link: '/workspace',
   },
   {
     id: 6,
     avatar: 'https://avatar.vercel.sh/satori',
-    date: '1天前',
+    date: '1 day ago',
     isRead: false,
-    message: '描述信息描述信息描述信息',
-    title: '跳转外部链接示例',
+    message: 'description description description',
+    title: 'External link example',
     link: 'https://doc.vben.pro',
   },
 ]);
@@ -167,7 +167,7 @@ function handleClickLogo() {}
 const viewAll = () => {};
 
 const handleClick = (item: NotificationItem) => {
-  // 如果通知项有链接，点击时跳转
+  // If the notification item has a link, it will jump when clicked
   if (item.link) {
     navigateTo(item.link, item.query, item.state);
   }
@@ -179,10 +179,10 @@ function navigateTo(
   state?: Record<string, any>,
 ) {
   if (link.startsWith('http://') || link.startsWith('https://')) {
-    // 外部链接，在新标签页打开
+    // External link, open in a new tab
     window.open(link, '_blank');
   } else {
-    // 内部路由链接，支持 query 参数和 state
+    // Internal routing link, supporting query parameters and state
     router.push({
       path: link,
       query: query || {},

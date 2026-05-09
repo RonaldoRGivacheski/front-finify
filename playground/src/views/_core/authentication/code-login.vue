@@ -60,7 +60,6 @@ const formSchema = computed((): VbenFormSchema[] => {
           return text;
         },
         handleSendCode: async () => {
-          // 模拟发送验证码
           // Simulate sending verification code
           loading.value = true;
           const formApi = loginRef.value?.getFormApi();
@@ -89,9 +88,8 @@ const formSchema = computed((): VbenFormSchema[] => {
   ];
 });
 /**
- * 异步处理登录操作
  * Asynchronously handle the login process
- * @param values 登录表单数据
+ * @param values Login form data
  */
 async function handleLogin(values: Recordable<any>) {
   void values;

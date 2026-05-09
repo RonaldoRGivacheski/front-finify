@@ -22,157 +22,169 @@ const [Form, formApi] = useVbenForm({
         placeholder: '请输入用户名',
       },
       fieldName: 'username',
-      label: '用户名',
+      label: 'username',
       rules: 'required',
     },
     {
       component: 'Input',
       componentProps: {
-        placeholder: '请输入邮箱',
+        placeholder: 'Please enter your email address.',
       },
       fieldName: 'email',
-      label: '邮箱',
+      label: 'Email',
       rules: 'required',
     },
     {
       component: 'Input',
       componentProps: {
-        placeholder: '请输入手机号',
+        placeholder: 'Please enter your phone number.',
       },
       fieldName: 'phone',
-      label: '手机号',
+      label: 'Phone',
       rules: 'required',
     },
     {
       component: 'Input',
       componentProps: {
-        placeholder: '请输入地址',
+        placeholder: 'Please enter your address.',
       },
       fieldName: 'address',
-      label: '地址',
+      label: 'address',
       rules: 'required',
     },
     {
       component: 'Input',
       componentProps: {
-        placeholder: '请输入备注',
+        placeholder: 'Please enter your remark.',
       },
       fieldName: 'remark',
-      label: '备注',
+      label: 'remark',
       rules: 'required',
     },
     {
       component: 'Input',
       componentProps: {
-        placeholder: '请输入公司名称',
+        placeholder: 'Please enter your company name.',
       },
       fieldName: 'company',
-      label: '公司名称',
+      label: 'Company',
       rules: 'required',
     },
     {
       component: 'Input',
       componentProps: {
-        placeholder: '请输入职位',
+        placeholder: 'Please enter your position.',
       },
       fieldName: 'position',
-      label: '职位',
+      label: 'position',
       rules: 'required',
     },
     {
       component: 'Select',
       componentProps: {
         options: [
-          { label: '男', value: 'male' },
-          { label: '女', value: 'female' },
+          { label: 'male', value: 'male' },
+          { label: 'female', value: 'female' },
         ],
-        placeholder: '请选择性别',
+        placeholder: 'Please select your gender.',
       },
       fieldName: 'gender',
-      label: '性别',
+      label: 'gender',
       rules: 'selectRequired',
     },
   ],
   showDefaultActions: false,
 });
 
-// 测试 validateAndSubmitForm（验证并提交）
+// Test validateAndSubmitForm (validate and submit)
 async function testValidateAndSubmit() {
   await formApi.validateAndSubmitForm();
 }
 
-// 测试 validate（手动验证整个表单）
+// Test validate (manually validate the entire form)
 async function testValidate() {
   await formApi.validate();
 }
 
-// 测试 validateField（验证单个字段）
+// Test validateField (validate a single field)
 async function testValidateField() {
   await formApi.validateField('username');
 }
 
-// 切换滚动功能
+// Toggle scroll function
 function toggleScrollToError() {
   formApi.setState({ scrollToFirstError: scrollEnabled.value });
 }
 
-// 填充部分数据测试
+// Fill partial data test
 async function fillPartialData() {
   await formApi.resetForm();
-  await formApi.setFieldValue('username', '测试用户');
+  await formApi.setFieldValue('username', 'test');
   await formApi.setFieldValue('email', 'test@example.com');
 }
 </script>
 
 <template>
   <Page
-    description="测试表单验证失败时自动滚动到错误字段的功能"
-    title="滚动到错误字段测试"
+    description="Test form validation failure automatically scrolls to the error field function"
+    title="Scroll to Error Test"
   >
-    <Card title="功能测试">
+    <Card title="Feature Test">
       <template #extra>
         <div class="flex items-center gap-2">
           <Switch
             v-model:checked="scrollEnabled"
             @change="toggleScrollToError"
           />
-          <span>启用滚动到错误字段</span>
+          <span>Enable scroll to error</span>
         </div>
       </template>
 
       <div class="space-y-4">
         <div class="rounded-sm bg-blue-50 p-4">
-          <h3 class="mb-2 font-medium">测试说明：</h3>
+          <h3 class="mb-2 font-medium">Test description:</h3>
           <ul class="list-inside list-disc space-y-1 text-sm">
-            <li>所有验证方法在验证失败时都会自动滚动到第一个错误字段</li>
-            <li>可以通过右上角的开关控制是否启用自动滚动功能</li>
+            <li>
+              All validation methods will automatically scroll to the first
+              error field when validation fails
+            </li>
+            <li>
+              The switch in the upper right corner can be used to control
+              whether the automatic scroll function is enabled
+            </li>
           </ul>
         </div>
 
         <div class="rounded-sm border p-4">
-          <h4 class="mb-3 font-medium">验证方法测试：</h4>
+          <h4 class="mb-3 font-medium">Verification method test:</h4>
           <div class="flex flex-wrap gap-2">
             <Button type="primary" @click="testValidateAndSubmit">
-              测试 validateAndSubmitForm()
+              Test validateAndSubmitForm()
             </Button>
-            <Button @click="testValidate"> 测试 validate() </Button>
-            <Button @click="testValidateField"> 测试 validateField() </Button>
+            <Button @click="testValidate"> Test validate() </Button>
+            <Button @click="testValidateField"> Test validateField() </Button>
           </div>
           <div class="mt-2 text-xs text-gray-500">
-            <p>• validateAndSubmitForm(): 验证表单并提交</p>
-            <p>• validate(): 手动验证整个表单</p>
-            <p>• validateField(): 验证单个字段（这里测试用户名字段）</p>
+            <p>• validateAndSubmitForm(): Validate and submit the form</p>
+            <p>• validate(): Manually validate the entire form</p>
+            <p>
+              • validateField(): Validate a single field (test username field
+              here)
+            </p>
           </div>
         </div>
 
         <div class="rounded-sm border p-4">
-          <h4 class="mb-3 font-medium">数据填充测试：</h4>
+          <h4 class="mb-3 font-medium">Data filling test:</h4>
           <div class="flex flex-wrap gap-2">
-            <Button @click="fillPartialData"> 填充部分数据 </Button>
-            <Button @click="() => formApi.resetForm()"> 清空表单 </Button>
+            <Button @click="fillPartialData"> Fill partial data </Button>
+            <Button @click="() => formApi.resetForm()"> Reset form </Button>
           </div>
           <div class="mt-2 text-xs text-gray-500">
-            <p>• 填充部分数据后验证，会滚动到第一个错误字段</p>
+            <p>
+              • After filling in partial data, validation will scroll to the
+              first error field
+            </p>
           </div>
         </div>
 

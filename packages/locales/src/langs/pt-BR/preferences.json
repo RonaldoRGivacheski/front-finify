@@ -1,0 +1,230 @@
+{
+  "title": "Preferências",
+  "subtitle": "Personalize Preferências & Visualize em Tempo Real",
+  "enableStickyPreferencesNavigationBar": "Habilitar barra de navegação de preferências fixa",
+  "disableStickyPreferencesNavigationBar": "Desabilitar barra de navegação de preferências fixa",
+  "resetTip": "Os dados mudaram, clique para redefinir",
+  "resetTitle": "Redefinir Preferências",
+  "resetSuccess": "Preferências redefinidas com sucesso",
+  "appearance": "Aparência",
+  "layout": "Layout",
+  "content": "Conteúdo",
+  "other": "Outro",
+  "wide": "Largo",
+  "compact": "Fixo",
+  "followSystem": "Seguir Sistema",
+  "vertical": "Vertical",
+  "verticalTip": "Modo de menu vertical lateral",
+  "horizontal": "Horizontal",
+  "horizontalTip": "Modo de menu horizontal, todos os menus exibidos no topo",
+  "twoColumn": "Duas Colunas",
+  "twoColumnTip": "Modo de menu vertical de duas colunas",
+  "headerSidebarNav": "Vertical de Cabeçalho",
+  "headerSidebarNavTip": "Cabeçalho de Largura Total, Modo de Navegação Lateral",
+  "headerTwoColumn": "Cabeçalho de Duas Colunas",
+  "headerTwoColumnTip": "Navegação de Cabeçalho e Duas Colunas Laterais coexistem",
+  "mixedMenu": "Menu Misto",
+  "mixedMenuTip": "Menu Vertical e Horizontal coexistem",
+  "fullContent": "Conteúdo Completo",
+  "fullContentTip": "Exibir apenas o corpo do conteúdo, ocultar todos os menus",
+  "normal": "Normal",
+  "plain": "Simples",
+  "rounded": "Arredondado",
+  "copyPreferences": "Copiar Preferências",
+  "enableCopyPreferences": "Mostrar botão de copiar preferências",
+  "copyPreferencesSuccessTitle": "Cópia bem-sucedida",
+  "copyPreferencesSuccess": "Copiado com sucesso, por favor substitua em `src/preferences.ts` sob o app",
+  "clearAndLogout": "Limpar Cache & Sair",
+  "mode": "Modo",
+  "general": "Geral",
+  "language": "Idioma",
+  "dynamicTitle": "Título Dinâmico",
+  "watermark": "Marca d'água",
+  "watermarkContent": "Por favor, insira o conteúdo da marca d'água",
+  "checkUpdates": "Verificação de atualização periódica",
+  "position": {
+    "title": "Posição das Preferências",
+    "header": "Cabeçalho",
+    "auto": "Auto",
+    "fixed": "Fixo"
+  },
+  "sidebar": {
+    "buttons": "Mostrar Botões",
+    "buttonFixed": "Fixo",
+    "buttonCollapsed": "Recolhido",
+    "title": "Barra Lateral",
+    "width": "Largura",
+    "visible": "Mostrar Barra Lateral",
+    "draggable": "Arrastar Menu Lateral",
+    "collapsed": "Recolher Menu",
+    "collapsedShowTitle": "Mostrar Título do Menu",
+    "autoActivateChild": "Ativar Automaticamente Submenu",
+    "autoActivateChildTip": "`Habilitado` para ativar automaticamente o submenu ao clicar no menu.",
+    "expandOnHover": "Expandir ao Passar o Mouse",
+    "expandOnHoverTip": "Quando o mouse paira sobre o menu, \n `Habilitado` para expandir submenus \n `Desabilitado` para expandir toda a barra lateral."
+  },
+  "tabbar": {
+    "title": "Barra de Abas",
+    "enable": "Habilitar Barra de Abas",
+    "icon": "Mostrar Ícone na Aba",
+    "showMore": "Mostrar Botão Mais",
+    "showMaximize": "Mostrar Botão Maximizar",
+    "persist": "Persistir Abas",
+    "visitHistory": "Histórico de Visitas",
+    "visitHistoryTip": "Quando ativado, a barra de guias registra o histórico de visitas da guia. \nFechar a guia atual selecionará automaticamente a última guia aberta.",
+    "maxCount": "Número Máximo de Abas",
+    "maxCountTip": "Quando o número de guias excede o máximo,\na guia mais antiga será fechada.\n Defina como 0 para desabilitar a verificação de contagem.",
+    "draggable": "Habilitar Ordenação Arrastável",
+    "wheelable": "Suporte a Roda do Mouse",
+    "middleClickClose": "Fechar Aba com Clique no Botão do Meio do Mouse",
+    "wheelableTip": "Quando ativado, a área da barra de guias responde aos eventos de rolagem vertical da roda de rolagem.",
+    "styleType": {
+      "title": "Estilo de Abas",
+      "chrome": "Chrome",
+      "card": "Cartão",
+      "plain": "Simples",
+      "brisk": "Rápido"
+    },
+    "contextMenu": {
+      "reload": "Recarregar",
+      "close": "Fechar",
+      "pin": "Fixar",
+      "unpin": "Desafixar",
+      "closeLeft": "Fechar Abas à Esquerda",
+      "closeRight": "Fechar Abas à Direita",
+      "closeOther": "Fechar Outras Abas",
+      "closeAll": "Fechar Todas as Abas",
+      "openInNewWindow": "Abrir em Nova Janela",
+      "maximize": "Maximizar",
+      "restoreMaximize": "Restaurar"
+    }
+  },
+  "navigationMenu": {
+    "title": "Menu de Navegação",
+    "style": "Estilo do Menu de Navegação",
+    "accordion": "Menu Sanfona Lateral",
+    "split": "Separação do Menu de Navegação",
+    "splitTip": "Quando habilitado, a barra lateral exibe o submenu da barra superior"
+  },
+  "breadcrumb": {
+    "title": "Trilha de Navegação",
+    "home": "Mostrar Botão Início",
+    "enable": "Habilitar Trilha de Navegação",
+    "icon": "Mostrar Ícone da Trilha",
+    "background": "fundo",
+    "style": "Estilo da Trilha",
+    "hideOnlyOne": "Ocultar quando houver apenas um"
+  },
+  "animation": {
+    "title": "Animação",
+    "loading": "Carregamento da Página",
+    "transition": "Transição de Página",
+    "progress": "Progresso da Página"
+  },
+  "theme": {
+    "title": "Tema",
+    "radius": "Raio",
+    "fontSize": "Tamanho da Fonte",
+    "fontSizeTip": "Ajuste o tamanho da fonte global com visualização em tempo real",
+    "light": "Claro",
+    "dark": "Escuro",
+    "darkSidebar": "Barra Lateral Semi Escura",
+    "darkSidebarTip": "Pode ser ativado quando o tema é claro e o layout não é 'Horizontal' nem 'Conteúdo Completo'.",
+    "darkSidebarSub": "Sub-Barra Lateral Semi Escura",
+    "darkSidebarSubTip": "Pode ser ativado quando o tema é claro, a barra lateral semi escura está ativada e o layout usa o modo de menu 'Duas Colunas'.",
+    "darkHeader": "Cabeçalho Semi Escuro",
+    "weakMode": "Modo Fraco",
+    "grayMode": "Modo Cinza",
+    "builtin": {
+      "title": "Embutido",
+      "default": "Padrão",
+      "violet": "Violeta",
+      "pink": "Rosa",
+      "rose": "Rosa Forte",
+      "skyBlue": "Azul Celeste",
+      "deepBlue": "Azul Profundo",
+      "green": "Verde",
+      "deepGreen": "Verde Profundo",
+      "orange": "Laranja",
+      "yellow": "Amarelo",
+      "zinc": "Zinco",
+      "neutral": "Neutro",
+      "slate": "Ardósia",
+      "gray": "Cinza",
+      "custom": "Personalizado"
+    }
+  },
+  "header": {
+    "title": "Cabeçalho",
+    "visible": "Mostrar Cabeçalho",
+    "modeStatic": "Estático",
+    "modeFixed": "Fixo",
+    "modeAuto": "Ocultar & Mostrar Automaticamente",
+    "modeAutoScroll": "Rolar para Ocultar & Mostrar",
+    "menuAlign": "Alinhamento do Menu",
+    "menuAlignStart": "Início",
+    "menuAlignEnd": "Fim",
+    "menuAlignCenter": "Centro"
+  },
+  "footer": {
+    "title": "Rodapé",
+    "visible": "Mostrar Rodapé",
+    "fixed": "Fixo na Parte Inferior"
+  },
+  "copyright": {
+    "title": "Direitos Autorais",
+    "enable": "Habilitar Direitos Autorais",
+    "companyName": "Nome da Empresa",
+    "companySiteLink": "Link do Site da Empresa",
+    "date": "Data",
+    "icp": "Número de Licença ICP",
+    "icpLink": "Link do Site ICP"
+  },
+  "shortcutKeys": {
+    "title": "Teclas de Atalho",
+    "global": "Global",
+    "search": "Pesquisa Global",
+    "logout": "Sair",
+    "preferences": "Preferências"
+  },
+  "widget": {
+    "title": "Widget",
+    "globalSearch": "Habilitar Pesquisa Global",
+    "fullscreen": "Habilitar Tela Cheia",
+    "themeToggle": "Habilitar Troca de Tema",
+    "languageToggle": "Habilitar Troca de Idioma",
+    "notification": "Habilitar Notificação",
+    "sidebarToggle": "Habilitar Troca de Barra Lateral",
+    "lockScreen": "Habilitar Bloqueio de Tela",
+    "refresh": "Habilitar Atualização",
+    "timezone": "Habilitar Fuso Horário"
+  },
+  "antd": {
+    "tabLabel": "Extensão Antd",
+    "title": "Preferências de Negócios",
+    "fields": {
+      "enableFormFullscreen": {
+        "label": "Habilitar Modo Tela Cheia no Formulário",
+        "tip": "Subprojetos podem ler esta configuração de extensão em seus próprios cenários de negócios."
+      },
+      "tenantMode": {
+        "label": "Modo de Inquilino",
+        "options": {
+          "single": {
+            "label": "Inquilino Único"
+          },
+          "multi": {
+            "label": "Múltiplos Inquilinos"
+          }
+        }
+      },
+      "defaultTableSize": {
+        "label": "Tamanho Padrão da Página"
+      },
+      "reportTitle": {
+        "label": "Título do Relatório Padrão",
+        "placeholder": "Por favor, insira o título do relatório padrão"
+      }
+    }
+  }
+}

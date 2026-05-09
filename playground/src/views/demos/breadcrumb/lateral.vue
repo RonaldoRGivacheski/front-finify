@@ -14,12 +14,12 @@ function details() {
 
 <template>
   <Fallback
-    description="点击查看详情，并观察面包屑导航变化"
+    description="Click to view details and observe changes in the breadcrumb navigation"
     status="coming-soon"
-    title="面包屑导航-平级模式"
+    title="Breadcrumb Navigation - Parallel Mode"
   >
     <template #action>
-      <Button type="primary" @click="details">点击查看详情</Button>
+      <Button type="primary" @click="details">Click to view details</Button>
     </template>
   </Fallback>
 </template>
