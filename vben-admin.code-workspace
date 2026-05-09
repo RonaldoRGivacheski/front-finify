@@ -17,6 +17,10 @@
       "path": "apps/web-ele"
     },
     {
+      "name": "finify-web",
+      "path": "apps/web-finify"
+    },
+    {
       "name": "@vben/web-naive",
       "path": "apps/web-naive"
     },

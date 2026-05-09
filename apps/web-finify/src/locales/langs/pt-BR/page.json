@@ -1,0 +1,17 @@
+{
+  "auth": {
+    "login": "Entrar",
+    "register": "Registrar",
+    "codeLogin": "Login com Código",
+    "qrcodeLogin": "Login com Qr Code",
+    "forgetPassword": "Esqueci a Senha",
+    "sendingCode": "Enviando código SMS...",
+    "codeSentTo": "O código foi enviado para {0}",
+    "profile": "Perfil"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "analytics": "Análise",
+    "workspace": "Espaço de Trabalho"
+  }
+}

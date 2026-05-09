@@ -1,0 +1,88 @@
+{
+  "title": "Exemplos",
+  "modal": {
+    "title": "Modal"
+  },
+  "drawer": {
+    "title": "Drawer"
+  },
+  "ellipsis": {
+    "title": "Texto com Reticências"
+  },
+  "form": {
+    "title": "Formulário",
+    "basic": "Formulário Básico",
+    "layout": "Layout Personalizado",
+    "query": "Formulário de Consulta",
+    "valueFormat": "Formato de Valor",
+    "rules": "Regras de Formulário",
+    "dynamic": "Formulário Dinâmico",
+    "custom": "Componente Personalizado",
+    "api": "API",
+    "merge": "Mesclar Formulário",
+    "scrollToError": "Rolar para o Campo de Erro",
+    "upload-error": "Falha parcial no upload de arquivo",
+    "upload-urls": "URLs após o upload do arquivo",
+    "file": "arquivo",
+    "crop-image": "Cortar imagem",
+    "upload-image": "Clique para fazer upload de imagem",
+    "collapsible": "Campo de Formulário Colapsável"
+  },
+  "vxeTable": {
+    "title": "Tabela Vxe",
+    "basic": "Tabela Básica",
+    "remote": "Carregamento Remoto",
+    "tree": "Tabela em Árvore",
+    "fixed": "Cabeçalho/Coluna Fixa",
+    "virtual": "Rolagem Virtual",
+    "editCell": "Editar Célula",
+    "editRow": "Editar Linha",
+    "custom-cell": "Célula Personalizada",
+    "form": "Tabela de Formulário"
+  },
+  "captcha": {
+    "title": "Captcha",
+    "pointSelection": "Captcha de Seleção de Ponto",
+    "sliderCaptcha": "Captcha Deslizante",
+    "sliderRotateCaptcha": "Captcha de Rotação",
+    "sliderTranslateCaptcha": "Captcha de Translação",
+    "captchaCardTitle": "Por favor, complete a verificação de segurança",
+    "pageDescription": "Verifique a identidade do usuário clicando em locais específicos na imagem.",
+    "pageTitle": "Exemplo de Componente Captcha",
+    "basic": "Uso Básico",
+    "titlePlaceholder": "Texto do Título do Captcha",
+    "captchaImageUrlPlaceholder": "Imagem do Captcha (suporta o valor do atributo src da tag img)",
+    "hintImage": "Imagem de Dica",
+    "hintText": "Texto de Dica",
+    "hintImagePlaceholder": "Imagem de Dica (suporta o valor do atributo src da tag img)",
+    "hintTextPlaceholder": "Texto de Dica",
+    "showConfirm": "Mostrar Confirmação",
+    "hideConfirm": "Ocultar Confirmação",
+    "widthPlaceholder": "Largura da Imagem do Captcha Padrão 300px",
+    "heightPlaceholder": "Altura da Imagem do Captcha Padrão 220px",
+    "paddingXPlaceholder": "Preenchimento Horizontal Padrão 12px",
+    "paddingYPlaceholder": "Preenchimento Vertical Padrão 16px",
+    "index": "Índice:",
+    "timestamp": "Timestamp:",
+    "x": "x:",
+    "y": "y:"
+  },
+  "resize": {
+    "title": "Redimensionar"
+  },
+  "layout": {
+    "col-page": "Layout ColPage"
+  },
+  "button-group": {
+    "title": "Grupo de Botões"
+  },
+  "function": {
+    "contentMenu": "Menu de Contexto"
+  },
+  "cropper": {
+    "title": "Cortador de Imagem"
+  },
+  "tiptap": {
+    "title": "Editor de Texto Rico"
+  }
+}
