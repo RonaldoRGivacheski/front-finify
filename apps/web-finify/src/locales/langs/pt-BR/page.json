@@ -13,5 +13,9 @@
     "title": "Dashboard",
     "analytics": "Análise",
     "workspace": "Espaço de Trabalho"
+  },
+  "financial": {
+    "title": "Financeiro",
+    "bank": "Banco"
   }
 }

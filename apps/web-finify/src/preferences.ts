@@ -71,36 +71,36 @@ export const preferencesExtension =
         placeholder: 'preferences.antd.fields.reportTitle.placeholder',
       },
       {
-        "app": {
-          "locale": "pt-BR"
+        app: {
+          locale: 'pt-BR',
         },
-        "breadcrumb": {
-          "showHome": true,
-          "styleType": "background"
+        breadcrumb: {
+          showHome: true,
+          styleType: 'background',
         },
-        "copyright": {
-          "companyName": "Finify",
-          "companySiteLink": "https://www.finify.com.br",
-          "date": "2026"
+        copyright: {
+          companyName: 'Finify',
+          companySiteLink: 'https://www.finify.com.br',
+          date: '2026',
         },
-        "footer": {
-          "enable": true
+        footer: {
+          enable: true,
         },
-        "sidebar": {
-          "expandOnHover": false
+        sidebar: {
+          expandOnHover: false,
         },
-        "tabbar": {
-          "maxCount": 10,
-          "middleClickToClose": true
+        tabbar: {
+          maxCount: 10,
+          middleClickToClose: true,
         },
-        "theme": {
-          "mode": "auto"
+        theme: {
+          mode: 'auto',
         },
-        "widget": {
-          "sidebarToggle": false,
-          "themeToggle": false,
-          "timezone": false
-        }
-      }
+        widget: {
+          sidebarToggle: false,
+          themeToggle: false,
+          timezone: false,
+        },
+      },
     ],
   });

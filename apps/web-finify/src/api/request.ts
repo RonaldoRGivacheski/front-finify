@@ -7,7 +7,6 @@ import { useAppConfig } from '@vben/hooks';
 import { preferences } from '@vben/preferences';
 import {
   authenticateResponseInterceptor,
-  defaultResponseInterceptor,
   errorMessageResponseInterceptor,
   RequestClient,
 } from '@vben/request';
@@ -69,7 +68,10 @@ function createRequestClient(baseURL: string, options?: RequestClientOptions) {
       const accessStore = useAccessStore();
 
       if (accessStore.accessToken) {
-        config.headers.set('Authorization', formatToken(accessStore.accessToken));
+        config.headers.set(
+          'Authorization',
+          formatToken(accessStore.accessToken),
+        );
       }
       config.headers.set('Accept-Language', preferences.app.locale);
       return config;

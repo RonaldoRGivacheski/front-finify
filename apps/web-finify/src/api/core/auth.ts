@@ -1,4 +1,4 @@
-import { baseRequestClient, requestClient } from '#/api/request';
+import { requestClient } from '#/api/request';
 
 export namespace AuthApi {
   //  Login interface parameters
@@ -36,7 +36,10 @@ export async function loginApi(data: AuthApi.LoginParams) {
 
 //  Refresh accessToken
 export async function refreshTokenApi(data: AuthApi.RefreshTokenParams) {
-  return requestClient.post<AuthApi.RefreshTokenResult>('authentication/refresh/', data);
+  return requestClient.post<AuthApi.RefreshTokenResult>(
+    'authentication/refresh/',
+    data,
+  );
 }
 
 //  Logout

@@ -99,15 +99,17 @@ function setupAccessGuard(router: Router) {
     try {
       userInfo = userStore.userInfo || (await authStore.fetchUserInfo());
       const userRoles = userInfo.roles ?? [];
+      const accessCodes = accessStore.accessCodes ?? [];
+      const combinedAccess = [...userRoles, ...accessCodes];
 
       //  Generate menus and routes
       const accessResult = await generateAccess({
-        roles: userRoles,
+        roles: combinedAccess,
         router,
         //  If route.meta.menuVisibleWithForbidden = true, it will be displayed in the menu, but access will be redirected to the 403 page
         routes: accessRoutes,
       });
-      
+
       accessibleMenus = accessResult.accessibleMenus;
       accessibleRoutes = accessResult.accessibleRoutes;
     } catch (error) {
