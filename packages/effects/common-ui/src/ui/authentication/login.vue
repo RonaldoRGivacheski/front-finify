@@ -28,15 +28,15 @@ const props = withDefaults(defineProps<Props>(), {
   codeLoginPath: '/auth/code-login',
   forgetPasswordPath: '/auth/forget-password',
   formSchema: () => [],
-  loading: false,
+  loading: true,
   qrCodeLoginPath: '/auth/qrcode-login',
   registerPath: '/auth/register',
-  showCodeLogin: true,
+  showCodeLogin: false,
   showForgetPassword: true,
-  showQrcodeLogin: true,
+  showQrcodeLogin: false,
   showRegister: true,
   showRememberMe: true,
-  showThirdPartyLogin: true,
+  showThirdPartyLogin: false,
   submitButtonText: '',
   subTitle: '',
   title: '',
@@ -166,7 +166,7 @@ defineExpose({
       </VbenButton>
     </div>
 
-    <!-- 第三方登录 -->
+    <!-- Third-party login -->
     <slot name="third-party-login">
       <ThirdPartyLogin v-if="showThirdPartyLogin" />
     </slot>

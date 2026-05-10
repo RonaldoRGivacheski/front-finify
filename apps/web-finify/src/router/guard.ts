@@ -82,7 +82,7 @@ function setupAccessGuard(router: Router) {
           replace: true,
         };
       }
-      return to;
+      return true;
     }
 
     //  Whether the dynamic route has been generated
@@ -92,16 +92,30 @@ function setupAccessGuard(router: Router) {
 
     //  Generate route table
     //  The list of role identifiers owned by the currently logged-in user
-    const userInfo = userStore.userInfo || (await authStore.fetchUserInfo());
-    const userRoles = userInfo.roles ?? [];
+    let userInfo;
+    let accessibleMenus;
+    let accessibleRoutes;
 
-    //  Generate menus and routes
-    const { accessibleMenus, accessibleRoutes } = await generateAccess({
-      roles: userRoles,
-      router,
-      //  If route.meta.menuVisibleWithForbidden = true, it will be displayed in the menu, but access will be redirected to the 403 page
-      routes: accessRoutes,
-    });
+    try {
+      userInfo = userStore.userInfo || (await authStore.fetchUserInfo());
+      const userRoles = userInfo.roles ?? [];
+
+      //  Generate menus and routes
+      const accessResult = await generateAccess({
+        roles: userRoles,
+        router,
+        //  If route.meta.menuVisibleWithForbidden = true, it will be displayed in the menu, but access will be redirected to the 403 page
+        routes: accessRoutes,
+      });
+      
+      accessibleMenus = accessResult.accessibleMenus;
+      accessibleRoutes = accessResult.accessibleRoutes;
+    } catch (error) {
+      // If fetching user info or menus fails, clear token and redirect to login
+      console.error('Error during access generation:', error);
+      accessStore.setAccessToken(null);
+      return { path: LOGIN_PATH, replace: true };
+    }
 
     //  Save menu information and route information
     accessStore.setAccessMenus(accessibleMenus);
@@ -124,9 +138,9 @@ function setupAccessGuard(router: Router) {
  * @param router
  */
 function createRouterGuard(router: Router) {
-  /**  Common */
+  /** Common */
   setupCommonGuard(router);
-  /**  Permission access */
+  /** Permission access */
   setupAccessGuard(router);
 }
 

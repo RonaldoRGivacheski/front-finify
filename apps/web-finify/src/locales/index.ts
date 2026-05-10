@@ -15,7 +15,6 @@ import { preferences } from '@vben/preferences';
 
 import antdEnLocale from 'ant-design-vue/es/locale/en_US';
 import antdPtBrLocale from 'ant-design-vue/es/locale/pt_BR';
-import antdZHLocale from 'ant-design-vue/es/locale/zh_CN';
 import dayjs from 'dayjs';
 
 const antdLocale = ref<Locale>(antdPtBrLocale);
@@ -36,7 +35,7 @@ async function loadMessages(lang: SupportedLanguagesType) {
     localesMap[lang]?.(),
     loadThirdPartyMessage(lang),
   ]);
-  return appLocaleMessages?.default;
+  return appLocaleMessages?.default ?? {};
 }
 
 /**
@@ -62,10 +61,6 @@ async function loadDayjsLocale(lang: SupportedLanguagesType) {
       locale = await import('dayjs/locale/pt-br');
       break;
     }
-    case 'zh-CN': {
-      locale = await import('dayjs/locale/zh-cn');
-      break;
-    }
     default: {
       locale = await import('dayjs/locale/pt-br');
     }
@@ -89,10 +84,6 @@ async function loadAntdLocale(lang: SupportedLanguagesType) {
     }
     case 'pt-BR': {
       antdLocale.value = antdPtBrLocale;
-      break;
-    }
-    case 'zh-CN': {
-      antdLocale.value = antdZHLocale;
       break;
     }
   }

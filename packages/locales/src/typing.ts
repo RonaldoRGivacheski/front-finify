@@ -1,4 +1,4 @@
-export type SupportedLanguagesType = 'en-US' | 'pt-BR' | 'zh-CN';
+export type SupportedLanguagesType = 'en-US' | 'pt-BR';
 
 export type ImportLocaleFn = () => Promise<{ default: Record<string, string> }>;
 

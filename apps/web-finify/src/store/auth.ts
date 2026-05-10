@@ -21,7 +21,7 @@ export const useAuthStore = defineStore('auth', () => {
   const loginLoading = ref(false);
 
   /**
-   *  @en_US Asynchronously handle the login process
+   * @en_US Asynchronously handle the login process
    * @param params  Login form data
    */
   async function authLogin(
@@ -32,11 +32,12 @@ export const useAuthStore = defineStore('auth', () => {
     let userInfo: null | UserInfo = null;
     try {
       loginLoading.value = true;
-      const { accessToken } = await loginApi(params);
+      const { access_token, refresh_token } = await loginApi(params);
 
       //  @en_US If accessToken is successfully obtained
-      if (accessToken) {
-        accessStore.setAccessToken(accessToken);
+      if (access_token) {
+        accessStore.setAccessToken(access_token);
+        accessStore.setRefreshToken(refresh_token);
 
         //  @en_US Get user information and store it in accessStore
         const [fetchUserInfoResult, accessCodes] = await Promise.all([

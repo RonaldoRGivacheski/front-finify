@@ -50,9 +50,12 @@ function createRequestClient(baseURL: string, options?: RequestClientOptions) {
    */
   async function doRefreshToken() {
     const accessStore = useAccessStore();
-    const resp = await refreshTokenApi();
-    const newToken = resp.data;
+    const resp = await refreshTokenApi({
+      refresh_token: accessStore.refreshToken || '',
+    });
+    const newToken = resp.access_token;
     accessStore.setAccessToken(newToken);
+    accessStore.setRefreshToken(resp.refresh_token);
     return newToken;
   }
 
@@ -65,20 +68,20 @@ function createRequestClient(baseURL: string, options?: RequestClientOptions) {
     fulfilled: async (config) => {
       const accessStore = useAccessStore();
 
-      config.headers.Authorization = formatToken(accessStore.accessToken);
-      config.headers['Accept-Language'] = preferences.app.locale;
+      if (accessStore.accessToken) {
+        config.headers.set('Authorization', formatToken(accessStore.accessToken));
+      }
+      config.headers.set('Accept-Language', preferences.app.locale);
       return config;
     },
   });
 
   //  Process returned response data format
-  client.addResponseInterceptor(
-    defaultResponseInterceptor({
-      codeField: 'code',
-      dataField: 'data',
-      successCode: 0,
-    }),
-  );
+  client.addResponseInterceptor({
+    fulfilled: (response) => {
+      return response.data;
+    },
+  });
 
   //  Token expiration processing
   client.addResponseInterceptor(
